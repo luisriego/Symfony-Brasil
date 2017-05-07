@@ -1,0 +1,574 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-5-8" class="doc doc_article quick_tour" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_doc-sidebar.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li><a href="{{ path('documentacao') }}">Documentação</a></li>
+                        <li><a href="{{ path('panorama') }}">Guia rápida</a></li>
+                        <li class="active">Panorama geral</li>
+                    </ol>
+                    <h1 class="content_title">Panorama geral</h1>
+                    <div class="page">
+                        <div id="doc-content-tools">
+                            <div class="doc-switcher">
+                                <div class="doc-switcher-wrapper">
+                                    <div class="selected">
+                                        3.2 version
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="doc-edit">
+                                <a href="#">Erros na página?</a>
+                            </div>
+                        </div>
+
+                        <div class="section" id="the-big-picture">
+                            <h1>Panorama geral
+                            <a class="headerlink" href="{{ path('panorama') }}#the-big-picture" title="Permalink to this headline">¶</a></h1>
+                            <p> Comece a usar o Symfony3 em 10 minutos! Este capítulo irá orientá-lo
+                                através de alguns dos conceitos mais importantes por trás do Symfony2
+                                e explicar como você poderá iniciar rapidamente, mostrando-lhe um
+                                projeto simples em acção.</p>
+                            <p> Se você já usou um framework web antes, você deve se sentir em casa
+                                com o Symfony2. Se não, bem-vindo à uma nova forma de desenvolver
+                                aplicações web!</p>
+                            <div class="section" id="installing-symfony">
+                                <span id="installing-symfony2"></span>
+                                <h2>Instalar Symfony<a class="headerlink" href="{{ path('panorama') }}#installing-symfony" title="Permalink to this headline">¶</a></h2>
+                                <p> Primeiro, verifique se você tem um servidor web instalado e
+                                    configurado (como o Apache) com a versão mais recente possível
+                                    do PHP.
+                                </p>
+                                <a
+                                    class="reference internal"
+                                    href="{{ path('download') }}">
+                                    <em>como instalar</em>
+                                </a>
+                                <br><br>
+                                <a
+                                        rel="nofollow"
+                                        target="_blank"
+                                        href="http://knpuniversity.com/screencast/symfony/start-project"
+                                        {#onclick="location.href = '{{ path('get-certification') }}'"#}
+                                        class="non_extensible_button button_01">
+                                        Veja como instalar neste video em inglês
+                                </a>
+                                <br><br>
+                                <a
+                                        href="{{ path('video-instalar') }}"
+                                        class="btn btn-large non_extensible_button button_01">
+                                        <span class="border_l png_fix">
+                                            <span class="border_r png_fix">
+                                                <span class="btn_bg png_fix">
+                                                    Gostaria em português!
+                                                </span>
+                                            </span>
+                                        </span>
+                                </a>
+                                {#{{ form_start(form) }}#}
+                                    {#{{ form_widget(form) }}#}
+                                {#{{ form_end(form) }}#}
+                                {#<form action="">#}
+                                    {#<button class="btn btn-large">gostaria em português!</button>#}
+                                {#</form>#}
+                            </div>
+                            <div class="section" id="entenda-os-fundamentos">
+                                <h2>Entenda os fundamentos<a class="headerlink" href="{{ path('panorama') }}#entenda-os-fundamentos" title="Permalink to this headline">¶</a></h2>
+                                <p>
+                                    Um dos objetivos principais de um framework é garantir a Separação de
+                                    Responsabilidades. Isso mantém o seu código organizado e permite que a sua
+                                    aplicação evolua facilmente ao longo do tempo, evitando a mistura de chamadas
+                                    ao banco de dados, de tags HTML e de lógica de negócios no mesmo script. Para
+                                    atingir este objetivo com o Symfony, primeiro você precisa aprender alguns
+                                    conceitos e termos fundamentais.
+                                </p>
+                                <p>
+                                    Quando desenvolvemos uma aplicação com Symfony, a sua responsabilidade
+                                    como desenvolvedor é escrever um código que mapeie as <em>petições</em>
+                                    dos usuarios (exemplo <tt class="docutils literal"><code>http://localhost:8000/</code></tt>)
+                                    nos <em>recursos</em> associados com essas petições
+                                    (a página HTML <tt class="docutils literal"><code>Homepage</code></tt>).
+                                </p>
+                                <p>
+                                    O código para executar se define em <strong>ações</strong> e <strong>controladores</strong>.
+                                    O mapeamento entre as solicitações de usuários e que o código é definida através da configuração
+                                    de <strong>roteamento</strong>. E os conteúdos exibidos no navegador são geralmente renderizados
+                                    usando <strong>templates</strong>.
+                                </p>
+                                <p>
+                                    Quando você digita <tt class="docutils literal"><code>http://localhost:8000/app/example</code></tt>
+                                    no navegador, Symfony executa o controlador definido no arquivo
+                                    <tt class="docutils literal"><code>src/AppBundle/Controller/DefaultController.php</code></tt>
+                                    e renderiza o template <tt class="docutils literal"><code>app/Resources/views/default/index.html.twig</code></tt>.
+                                    Nas seguintes seções você vai aprender em detalhe o funcionamento interno dos controladores,
+                                    rutas e templates de Symfony.
+                                </p>
+                                <div class="section" id="acoes-e-controladores">
+                                    <h3>Ações e Controladores
+                                        <a
+                                            class="headerlink"
+                                            href="http://symfony.com/doc/current/quick_tour/the_big_picture.html#actions-and-controllers"
+                                            title="Permalink to this headline">¶
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        Abrindo o arquivo <tt class="docutils literal"><code>src/AppBundle/Controller/DefaultController.php</code></tt>
+                                        você verá o seguiente código (por enquanto vamos esquecer a configuração do <tt class="docutils literal"><code>@Route</code></tt>
+                                        porque será abordada na próxima seção):
+                                    </p>
+                                    <div class="literal-block">
+                                        <div class="highlight-php">
+                                            <table class="highlighttable">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="linenos">
+                                                        <div class="linenodiv">
+                                                            <pre>
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre>
+                                                        </div>
+                                                    </td>
+                                                    <td class="code">
+                                                        <div class="highlight">
+                                                            <pre><span class="k">namespace</span> <span class="nx">AppBundle\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sensio\Bundle\FrameworkExtraBundle\Configuration\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DefaultController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route("/", name="homepage")</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'default/index.html.twig'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Nas aplicações Symfony os <strong>controladores</strong> são usualmente classes PHP
+                                        com o sufixo <tt class="docutils literal"><code>Controller</code></tt>. Neste exemplo, o controlador
+                                        se chama <tt class="docutils literal"><code>Default</code></tt> e a classe PHP se chama
+                                        <tt class="docutils literal"><code>DefaultController</code></tt>.
+                                    </p>
+                                    <p>
+                                        Os métodos definidos no controlador são chamados de <strong>ações</strong> e normalmente
+                                        são associados com uma URL da aplicação, o nome deve conter o sufixo
+                                        <tt class="docutils literal"><code>Action</code></tt>. Neste exemplo, o controlador
+                                        <tt class="docutils literal"><code>Default</code></tt> contém só uma ação chamada
+                                        <tt class="docutils literal"><code>index</code></tt> e definida no método
+                                        <tt class="docutils literal"><code>indexAction</code></tt>.
+                                    </p>
+                                    <p>
+                                        Normalmente as ações são muito curtas (10 a 15 linhas aprox.) porque só chamam
+                                        a outras partes da aplicação para obter ou gerar a informação nescessária e assim
+                                        poder renderizar o template e mostrar os resultados ao usuário.
+                                    </p>
+                                    <p>
+                                        No nosso exemplo, a acção <tt class="docutils literal"><code>index</code></tt> está praticamente
+                                        vazia porque não precissa chamar nenhum outro método. A acção só renderiza o template com o
+                                        conteudo da <em>Homepage</em>.
+                                    </p>
+                                </div>
+                                <div class="section" id="roteamento">
+                                    <h3>Roteamento
+                                        <a
+                                            class="headerlink"
+                                            href="http://symfony.com/doc/current/quick_tour/the_big_picture.html#routing"
+                                            title="Permalink to this headline">¶
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        O Symfony2 encaminha a solicitação para o código que lida com ela, tentando
+                                        corresponder a URL solicitada contra alguns padrões configurados. se abrirmos novamente
+                                        o arquivo <tt class="docutils literal"><code>src/AppBundle/Controller/DefaultController.php</code></tt>
+                                        e observamos as tres primeiras linhas de código no método <tt class="docutils literal"><code>indexAction</code></tt>:
+                                    </p>
+                                    <div class="literal-block">
+                                        <div class="highlight-php">
+                                            <table class="highlighttable">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="linenos">
+                                                        <div class="linenodiv">
+                                                            <pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre>
+                                                        </div>
+                                                    </td>
+                                                    <td class="code">
+                                                        <div class="highlight">
+                                                            <pre><span class="c1">// src/AppBundle/Controller/DefaultController.php</span>
+<span class="k">namespace</span> <span class="nx">AppBundle\Controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Sensio\Bundle\FrameworkExtraBundle\Configuration\Route</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\Controller</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DefaultController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @Route("/", name="homepage")</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">indexAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'default/index.html.twig'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Essas tres linhas definem a configuração do roteamento '@Route' a través de anotações (annotations).
+                                        As <strong>anotações PHP </strong> são um jeito prático de configurar um método sem ter que escrever
+                                        código PHP regular. Cuida de que essas anotações começem com <tt class="docutils literal"><code>/**</code></tt>
+                                        enquanto as anotações normais em PHP começam com <tt class="docutils literal"><code>/*</code></tt>.
+                                    </p>
+                                    <p>
+                                        O primeiro valor contido nos parenteses do <tt class="docutils literal"><code>@Route()</code></tt>
+                                        define a URL que irá desencadear a execução da acção. Como você não tem que adicionar o host
+                                        à URL (exemplo <tt class="docutils literal"><code>`http://example.com</code></tt>), essas URLs
+                                        são sempre relativas e normalmente chamadas de <em>'paths'</em>. Neste caso o <em>path</em>
+                                        <tt class="docutils literal"><code>"/"</code></tt> aponta para a Homepage da aplicação.</p>
+                                    <p> O segundo valor do <tt class="docutils literal"><code>@Route()</code></tt>
+                                        (exemplo <tt class="docutils literal"><code>name="homepage"</code></tt>) é opcional e define o nome
+                                        desta rota. Por enquanto esse nome não é necessário, porem, mais tarde será muito utilizado para
+                                        linkar páginas.
+                                    </p>
+                                    <p>
+                                        Tendo tudo isso em conta, a anotação <tt class="docutils literal"><code>@Route("/", name="homepage")</code></tt>
+                                        cria a nova rota chamada <tt class="docutils literal"><code>homepage</code></tt> o que faz Symfony executar a
+                                        acção <tt class="docutils literal"><code>index</code></tt> do controlador <tt class="docutils literal"><code>Default</code></tt>
+                                        quando o usuario digita no browser o 'path' da aplicação <tt class="docutils literal"><code>"/"</code></tt>.
+                                    </p>
+                                    <div class="admonition-wrapper">
+                                        <div class="tip"></div><div class="admonition admonition-tip"><p class="first admonition-title">Dica</p>
+                                            <p class="last">
+                                                Além das anotações PHP, as rotas podem ser configuradas em arquivos YAML, XML ou PHP,
+                                                veja en
+                                                <a class="reference internal" href="http://symfony.com/doc/current/book/routing.html">
+                                                    <em>the Routing chapter of the Symfony book</em>
+                                                </a>.
+                                                Esta flexibilidade é uma das principais caraterísticas do Symfony, o framework que nunca impõe
+                                                uma configuração em particular a você.
+                                            </p>
+                                        </div></div>
+                                </div>
+                                <div class="section" id="templates">
+                                    <h3>Templates
+                                        <a
+                                            class="headerlink"
+                                            href="{{ path('panorama') }}#templates" title="Permalink to this headline">¶
+                                        </a>
+                                    </h3>
+                                    <p>O único conteudo da acção <tt class="docutils literal"><code>index</code></tt> é a seguinte instrucção PHP:</p>
+                                    <div class="literal-block">
+                                        <div class="highlight-php">
+                                            <table class="highlighttable">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="linenos">
+                                                        <div class="linenodiv">
+                                                            <pre>1</pre>
+                                                        </div>
+                                                    </td>
+                                                    <td class="code">
+                                                        <div class="highlight">
+                                                            <pre><span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'default/index.html.twig'</span><span class="p">);</span>
+</pre>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        O método <tt class="docutils literal"><code>$this-&gt;render()</code></tt> é um atalho para renderizar um template.
+                                        Symfony proporciona alguns atalhos úteis para alguns controladores que extenden a classe
+                                        <tt class="docutils literal"><code>Controller</code></tt>
+                                    </p>
+                                    <p>
+                                        Por defecto, os templates da aplicação são armazenados no diretório <tt class="docutils literal"><code>app/Resources/views/</code></tt>.
+                                        Portanto o template <tt class="docutils literal"><code>default/index.html.twig</code></tt> corresponde a
+                                        <tt class="docutils literal"><code>app/Resources/views/default/index.html.twig</code></tt>. Abra este arquivo
+                                        e verá o seguinte código:
+                                    </p>
+                                    <div class="literal-block">
+                                        <div class="highlight-html+twig">
+                                            <table class="highlighttable">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="linenos">
+                                                        <div class="linenodiv">
+                                                            <pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td>
+                                                    <td class="code"><div class="highlight">{% verbatim %}
+                                                            <pre><span class="c">{# app/Resources/views/default/index.html.twig #}</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s1">'base.html.twig'</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+    <span class="nt">&lt;h1&gt;</span>Welcome to Symfony<span class="nt">&lt;/h1&gt;</span>
+
+    <span class="c">{# ... #}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre>{% endverbatim %}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Este template é criado com <a class="reference external" href="http://twig.sensiolabs.org/">Twig</a>,
+                                        um motor de templates criado para aplicações PHP modernas. A
+                                        <a class="reference internal" href="http://symfony.com/doc/current/quick_tour/the_view.html">
+                                            <em>segunda parte deste tutorial</em> explica como funcionas os templates em Symfony.
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="section" id="trabalhando-com-ambientes">
+                                <span id="quick-tour-big-picture-environments"></span>
+                                <h2>Trabalhando com Ambientes
+                                    <a
+                                        class="headerlink"
+                                        href="http://symfony.com/doc/current/quick_tour/the_big_picture.html#working-with-environments"
+                                        title="Permalink to this headline">¶
+                                    </a>
+                                </h2>
+                                <p>
+                                    Agora que você tem uma compreensão melhor de como funciona o Symfony, verifique a
+                                    parte inferior de qualquer página renderizada com o Symfony2. Você deve observar uma
+                                    pequena barra com o logotipo do Symfony2. Isso é chamado de “Barra de ferramentas
+                                    para Debug Web” é a melhor amiga do desenvolvedor.
+                                </p>
+                                <img alt="../_images/web_debug_toolbar.png" class="align-center" src="{{ asset('bundles/app/img/web_debug_toolbar.png') }}">
+                                <p>
+                                    Mas, o que você vê inicialmente é apenas a ponta do iceberg; clique sobre qualquer
+                                    ponto do profiler para revelar a ferramenta de depuração mais útil do Symfony com
+                                    informações valiosas da petição, consultas à base de dados, segurança e outras consultas.
+                                </p>
+                                <img alt="profiler" class="align-center" src="{{ asset('bundles/app/img/profiler.png') }}">
+                                <p>
+                                    Esta ferramenta fornece tanta informação interna sobre a sua aplicação que você pode
+                                    estar preocupado com os visitantes que acessam informações confidenciais. Symfony
+                                    está ciente desse problema e, por esse motivo, não vai exibir esta barra quando seu
+                                    aplicativo esteja sendo executado no servidor de produção.
+                                </p>
+                                <p>
+                                    Como é que Symfony sabe se a sua aplicação está sendo executada localmente ou em um
+                                    servidor de produção? Continue lendo para descobrir o conceito de
+                                    <strong>ambientes de execução</strong>.
+                                </p>
+                                <div class="section" id="que-e-um-ambiente">
+                                    <span id="quick-tour-big-picture-environments-intro"></span>
+                                    <h3>Que é um Environment?
+                                        <a
+                                            class="headerlink"
+                                            href="{{ path('panorama') }}#que-e-um-ambiente"
+                                            title="Permalink to this headline">¶
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        Um
+                                        <a class="reference internal" href="{#{{ path('glosario') }}#term-environment#}">
+                                            <span class="xref std std-term">Environment</span>
+                                        </a>
+                                        representa um grupo de configurações que é utilizado para executar o aplicativo.
+                                        Symfony define dois ambientes por padrão: <tt class="docutils literal"><code>dev</code></tt>
+                                        (adequado para desenvolver o aplicativo) e <tt class="docutils literal"><code>prod</code></tt>
+                                        (otimizado para executar o aplicativo em produção). Para ver a sua aplicação no ambiente
+                                        <tt class="docutils literal"><code>prod</code></tt>, va até
+                                        <tt class="docutils literal"><code>http://localhost:8000/app.php</code></tt>, por
+                                        outro lado, Se você preferir sempre mostrar o ambiente de dev na URL, você pode
+                                        digitar <tt class="docutils literal"><code>http://localhost:8000/app_dev.php</code></tt>
+                                    </p>
+                                    <p>
+                                        Quando você navega até a URL <tt class="docutils literal"><code>http://localhost:8000</code></tt>
+                                        no seu browser, você está executando o projeto Symfony no ambiente <tt class="docutils literal"><code>dev,</code></tt>
+                                        já para visitar a sua aplicação no ambiente <tt class="docutils literal"><code>prod</code></tt>,
+                                        vai até a URL <tt class="docutils literal"><code>http://localhost:8000/app.php</code></tt>.
+                                        Se você prefere mostrar sempre o ambiente <tt class="docutils literal"><code>dev</code></tt>
+                                        na URL, pode visitar a URL <tt class="docutils literal"><code>http://localhost:8000/app_dev.php</code></tt>.
+                                    </p>
+                                    <p>
+                                        A principal diferença entre os ambientes é que <tt class="docutils literal"><code>dev</code></tt>
+                                        é otimizado para fornecer muita informação para o desenvolvedor, o que significa que o desempenho
+                                        do aplicativo é pior. Enquanto isso, <tt class="docutils literal"><code>prod</code></tt> é otimizado
+                                        para obter o melhor desempenho, o que significa que depurar informações está desativado, bem como a
+                                        barra de ferramentas de depuração web.
+                                    </p>
+                                    <p>
+                                        A outra diferença entre os ambientes são as opções de configuração utilizados para executar o aplicativo.
+                                        Quando você acessa o ambiente <tt class="docutils literal"><code>dev</code></tt>, Symfony carrega o arquivo
+                                        de configuração <tt class="docutils literal"><code>app/config/config_dev.yml</code></tt>
+                                        . Quando você acessa o ambiente <tt class="docutils literal"><code>prod</code></tt>, Symfony carrega
+                                        <tt class="docutils literal"><code>app/config/config_prod.yml</code></tt>
+                                    </p>
+                                    <p>
+                                        Normalmente, os ambientes partilham uma grande quantidade de opções de configuração. Por essa razão, você
+                                        coloca sua configuração comum em <tt class="docutils literal"><code>config.yml</code></tt> e substitui o
+                                        arquivo de configuração específica para cada ambiente, sempre que necessário:
+                                    </p>
+                                    <div class="literal-block">
+                                        <div class="highlight-yaml">
+                                            <table class="highlighttable">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="linenos">
+                                                        <div class="linenodiv">
+                                                            <pre>1
+2
+3
+4
+5
+6
+7</pre>
+                                                        </div>
+                                                    </td>
+                                                    <td class="code">
+                                                        <div class="highlight">
+                                                            <pre><span class="c1"># app/config/config_dev.yml</span>
+<span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">resource</span><span class="p-Indicator">:</span> <span class="nv">config.yml</span> <span class="p-Indicator">}</span>
+
+<span class="l-Scalar-Plain">web_profiler</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">toolbar</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">intercept_redirects</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+</pre>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Neste exemplo, o arquivo de configuração <tt class="docutils literal"><code>config_dev.yml</code></tt>
+                                        importa o arquivo <tt class="docutils literal"><code>config.yml</code></tt> comum e, em seguida,
+                                        substitui qualquer configuração da barra de depuração web existente com suas próprias opções.
+                                    </p>
+                                    <p>
+                                        Para mais detalhes sobre ambientes, consulte o artigo
+                                        "<a
+                                            class="reference internal"
+                                            rel="nofollow"
+                                            target="_blank"
+                                            href="http://symfony.com/doc/current/book/configuration.html#page-creation-environments">
+                                            <span>Ambientes e Front Controllers</span>
+                                        </a>"
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="section" id="pensamentos-finais">
+                                <h2>Pensamentos Finais
+                                    <a class="headerlink"
+                                       href="http://symfony.com/doc/current/quick_tour/the_big_picture.html#final-thoughts"
+                                       title="Permalink to this headline">¶
+                                    </a>
+                                </h2>
+                                <p>
+                                    Parabéns! Você teve o seu primeiro contato com código Symfony. Isso não foi tão difícil, foi?
+                                    Há muito mais para explorar, mas você já deve ter percebido como Symfony torna realmente fácil
+                                    de implementar web sites melhor e mais rápido. Se você está ansioso para saber mais sobre Symfony,
+                                    mergulha na próxima seção:
+                                    "<a class="reference internal" href="{{ path('a-vista') }}"><em>A vista</em></a>".
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <ul class="row pager">
+                        <li class="col-xs-6 previous hidden">
+                            <a accesskey="P" title="The Quick Tour" href="http://symfony.com/doc/current/quick_tour/index.html">
+                                « The Quick Tour
+                            </a>
+                        </li>
+
+                        <li class="col-xs-6 next">
+                            <a accesskey="N" title="A Vista" href="{{ path('a-vista') }}">
+                                A vista »
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div id="license">
+                        <p>
+                            This work is licensed under a Creative Commons Attribution-Share Alike 3.0 Unported
+                            <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+                                License
+                            </a>.
+                        </p>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

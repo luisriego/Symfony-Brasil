@@ -1,0 +1,69 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-2-2" class="blog category case-studies" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+<!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_blog-sidebar.html.twig') }}
+
+                <div id="main" class="col-sm-9">
+                {% for post in posts %}
+                    <div class="post  {{ post.type }}">
+                        <div class="post-content">
+                            <h2>
+                                <a href="{{ post.link }}">
+                                    {{ post.title }}
+                                </a>
+                            </h2>
+                            {% if post.type == 'releases' %}
+                                <p class="excerpt">
+                                    <a href="{{ post.link }}">
+                                        Ler as notas de Versão
+                                    </a>
+                                </p>
+                            {% else %}
+                                <p class="excerpt">
+                                    {{ post.summary }}
+                                </p>
+                            {% endif %}
+                            <p class="metadata">
+                                <span class="date">{{ post.createdAt|date('d/m/Y') }}</span>
+                                <span class="author">
+                                    <span class="gravatar">
+                                            <a href="{{ post.author.link }}">
+                                                <img src="{{ asset(upload_directory)~post.author.avatar }}" alt="{{ post.author.link }}">
+                                            </a>
+                                    </span>
+                                    <a href="{{ post.author.link }}">
+                                        {{ post.author.name }}
+                                    </a>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                    <ul class="row pager">
+                        <li class="col-xs-6 previous disabled">
+                            &laquo; Previous Page
+                        </li>
+
+                        <li class="col-xs-6 next">
+                            <a accesskey="N" href="/blog/?page=2">
+                                Next Page &raquo;
+                            </a>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

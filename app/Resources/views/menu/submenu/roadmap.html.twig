@@ -1,0 +1,147 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-6-1" class="roadmap" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+
+                    <h1 class="content_title">Mapa do caminho Symfony</h1>
+                    <p>
+                        Symfony manages its releases through a time-based model. A new Symfony
+                        minor version comes out every six months, one in May and one in November.
+                        Check out the <a href="http://symfony.com/doc/current/contributing/community/releases.html">release process document</a> for the
+                        full timeline details.
+                    </p>
+
+                    <h2>Últimas versões de Symfony</h2>
+
+                    <div id="symfony-versions" class="row">
+                        <div class="col-md-4">
+                            <p class="name">long term support version</p>
+                            <strong class="version">{{ roadmap.symfony_versions.lts }}</strong>
+                            <p class="description">for projects that prioritize very long support over new features</p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p class="name">stable version</p>
+                            <strong class="version">{{ roadmap.symfony_versions.stable }}</strong>
+                            <p class="description">for projects that need the latest Symfony features</p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p class="name">development version</p>
+                            <strong class="version">{{ roadmap.symfony_versions.next }}</strong>
+                            <p class="description">for testing projects with the upcoming Symfony version</p>
+                        </div>
+                    </div>
+
+                    <h2>Roadmap Notifications Subscription</h2>
+
+                    <div id="symfony-notifications" class="box-secondary">
+                        <div>
+                            <form id="subscription-form" action="http://symfony.com/en/roadmap" method="post">
+                                <p>Subscribe to receive email notifications whenever important events
+                                    happen in the Symfony world.
+                                </p>
+
+
+
+                                <h4>Minor Version Events - x.Y</h4>
+
+                                <div class="roadmap-row">
+                                    <input type="checkbox" id="roadmap_subscription_majorVersion" name="roadmap_subscription[majorVersion]" value="1">
+                                    <label class="required">Minor events notifications (at most one email a month)</label>
+                                </div>
+
+                                <h4>Patch Version Events - x.y.Z</h4>
+
+                                <div>
+                                    <div class="roadmap-row">
+                                        <input type="radio" id="roadmap_subscription_minorVersion_0" name="roadmap_subscription[minorVersion]" value="all">
+                                        <label for="roadmap_subscription_minorVersion_0">Receive an email for new releases</label>
+                                    </div>
+                                    <div class="roadmap-row">
+                                        <input type="radio" id="roadmap_subscription_minorVersion_1" name="roadmap_subscription[minorVersion]" value="security">
+                                        <label for="roadmap_subscription_minorVersion_1">Receive an email only for security releases</label>
+                                    </div>
+                                    <div class="roadmap-row">
+                                        <input type="radio" id="roadmap_subscription_minorVersion_2" name="roadmap_subscription[minorVersion]" value="none" checked="checked">
+                                        <label for="roadmap_subscription_minorVersion_2">No notifications</label>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" id="roadmap_subscription__token" name="roadmap_subscription[_token]" value="-_82uWOIjhNsbv2J5RCQMTFj3bGibYEq_uj5D_nECFo">
+
+                                <button type="submit" class="btn">
+                                    UPDATE
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <h2 id="checker">Symfony version checker</h2>
+
+                    <div id="symfony-checker" class="box-standard">
+                        <form action="http://symfony.com/roadmap#checker" method="GET">
+                            <label for="version">Symfony</label>
+                            <input id="version" type="text" name="version" size="3" value="2.8">
+                            <button type="submit" class="btn btn-big">Check</button>
+                        </form>
+
+
+
+                        <p class="status">
+                            Symfony 2.8 is a <strong>long term support</strong>
+                            version with 3 years support that was published in
+                            November 2015.
+                        </p>
+
+
+
+                        <div id="symfony-roadmap">
+                            <h3>Roadmap</h3>
+
+                            <div class="diagram">
+                                <div class="segment">
+                                    <div class="circle circle-release"></div>
+                                    <div class="circle circle-end-of-maintenance"></div>
+                                </div>
+                                <div class="segment dashed">
+                                    <div class="circle circle-end-of-life"></div>
+                                </div>
+                            </div>
+
+                            <div class="milestones">
+                                <p class="milestone-release">
+                                    Nov 2015
+                                    <small>Release</small>
+                                </p>
+                                <p class="milestone-end-of-maintenance">
+                                    Nov 2018
+                                    <small>End of support for bug fixes</small>
+                                </p>
+                                <p class="milestone-end-of-life">
+                                    Nov 2019
+                                    <small>End of support for security fixes</small>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock %}

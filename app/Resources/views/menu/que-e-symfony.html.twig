@@ -1,0 +1,189 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-6-2" class="what-is-symfony" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+                    <h1 id="acheuno" class="content_title">O que é Symfony</h1>
+                    <div id="sym-feat" class="symfony-definition">
+                        <div class="row">
+                            <div class="col-sm-3 hidden-xs">
+                                <img src="{{ asset('bundles/app/img/sf-positive.svg') }}" alt="" class="img-responsive">
+                            </div>
+                            <div class="col-sm-9">
+                                 « Symfony é um conjunto de Componentes em PHP, um
+                                framework para aplicações web, uma filosofia, e uma
+                                comunidade que trabalha em harmonia. »
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symfony-features">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h3>Framework Symfony</h3>
+                                    <p>
+                                        O objetivo deste framework é criar sites e aplicações
+                                        web. Utilizando como base os componentes de Symfony
+                                    </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h3>Componentes Symfony</h3>
+                                <p>
+                                    Um conjunto de componentes independentes e reutilizáveis em
+                                    que as melhores aplicações PHP são construídos, tais como
+                                    Drupal, phpBB, e eZ.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h3>Comunidade Symfony</h3>
+                                    <p>
+                                        A enorme comunidade de fãs de Symfony comprometidos levar
+                                        PHP para o próximo nível.
+                                    </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <h3>Filosofia Symfony</h3>
+                                    <p>
+                                        Compromisso em promover o as melhores práticas,
+                                        o profissionalismo, a padronização e a interoperabilidade de aplicações.
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-standard symfony-stats">
+                        <h3>Estatisticas do Projeto Symfony</h3>
+                        <ul class="list-inline">
+                            <li>+2,000 <span>Contribuintes</span></li>
+                            <li>+300,000 <span>Desenvolvedores</span></li>
+                            <li>+5,000,000 <span>Downloads mensais</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="symfony-arguments">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <h3><a href="{{ path('5-minutos') }}">Symfony en 5 minutos</a></h3>
+                                    <ul>
+                                        <li><a href="{{ path('porque-usar') }}">Porque usar um framework?</a></li>
+                                        <li><a href="{{ path('quando-usar') }}">Quando usar um framework?</a></li>
+                                        <li><a href="{{ path('6-razoes') }}">6 boas razões para usar Symfony</a></li>
+                                        <li><a href="{{ path('beneficios') }}">Os benefícios tecnológicos do Symfony em 6 lições fáceis</a></li>
+                                        <li><a href="{{ path('criterios') }}">10 critérios para a escolha de um framework</a></li>
+                                    </ul>
+                            </div>
+
+                            {#<div class="col-sm-5 hidden">#}
+                                {#<h3>Elevator pitches</h3>#}
+                                    {#<p>Symfony2 explained...</p>#}
+                                    {#<ul>#}
+                                        {#<li><a href="http://symfony.com/explained-to-my-boss">... to my boss</a></li>#}
+                                        {#<li><a href="http://symfony.com/explained-to-a-developer">... to a developer</a></li>#}
+                                        {#<li><a href="http://symfony.com/explained-to-a-system-administrator">... to a system administrator</a></li>#}
+                                        {#<li><a href="http://symfony.com/explained-to-project-manager">... to a project manager</a></li>#}
+                                        {#<li><a href="http://symfony.com/explained-to-project-owner">... to a project owner</a></li>#}
+                                    {#</ul>#}
+                            {#</div>#}
+                        </div>
+                    </div>
+
+                    <div class="box-secondary quick-tour">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{ asset('bundles/app/img/get_started_quicktour.png') }}" alt="Get started" title="Get started">
+                            </div>
+                            <div class="col-md-8">
+                                <h2>Guia de Início Rápido</h2>
+                                <p>
+                                    Que pode ser melhor para entender Symfony do que experimentar
+                                    você mesmo? Fora o tempo, não vai te custar nada. Explora o
+                                    universo Symfony passo a passo, porém, vai com cuidado, Symfony
+                                    pode ser viciante desde o primeiro minuto.
+                                </p>
+                                <p>
+                                    <a href="{{ path('panorama') }}" class="btn">
+                                        Ler
+                                    </a>
+                                    <a id="quicktour-pdf" href="http://symfony.com/pdf/Symfony_quick_tour_3.0.pdf?v=4" class="btn">
+                                        Baixar o PDF
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $("#quicktour-pdf").click(function () {
+                                _gaq.push(['_trackEvent', 'Downloads', 'PDF', '/pdf/Symfony_quick_tour_3.0.pdf']);
+                            });
+                        });
+                    </script>
+
+                    <div class="symfony-ecosystem">
+                        <h2>The Symfony Ecosystem</h2>
+                            <p>These well-known PHP projects have also originated from or around Symfony project:</p>
+                        <ul>
+                            <li><a href="http://silex.sensiolabs.org/">Silex</a>, the PHP microframework built on top of Symfony Components</li>
+                            <li><a href="http://twig.sensiolabs.org/">Twig</a>, the fast, safe, and modern PHP templating engine</li>
+                            <li><a href="http://swiftmailer.org/">Swiftmailer</a>, the no-brainer solution to get your emails delivered</li>
+                        </ul>
+                    </div>
+
+                    <div id="get-in-touch">
+                        <h3>
+                            Get in touch with the community
+                        </h3>
+                        <ul class="row">
+                            <li class="col-xs-4">
+                                <a href="http://symfony.com/mailing-lists">
+                                    <img src="{{ asset('bundles/app/img/mail.png') }}" alt="" class="illustration">
+                                </a>
+                                <p>
+                                    <a href="http://symfony.com/mailing-lists">
+                                        <strong>Mailing-lists</strong><br>Discuss new features.
+                                    </a>
+                                </p>
+                            </li>
+                            <li class="col-xs-4">
+                                <a href="http://symfony.com/irc">
+                                    <img src="{{ asset('bundles/app/img/chat.png') }}" alt="" class="illustration">
+                                </a>
+                                <p>
+                                    <a href="http://symfony.com/irc">
+                                        <strong>IRC channel</strong><br>Join us for a real-time chat.
+                                    </a>
+                                </p>
+                            </li>
+                            <li class="col-xs-4">
+                                <a href="http://symfony.com/blog/">
+                                    <img src="{{ asset('bundles/app/img/blog.png') }}" alt="" class="illustration">
+                                </a>
+                                <p>
+                                    <a href="http://symfony.com/blog/">
+                                        <strong>Blog</strong><br>Read the latest news.
+                                    </a>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

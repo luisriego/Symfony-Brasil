@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-74601511-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+    	<link rel="alternate" href="http://symfonybrasil.com" hreflang="pt-br" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--[if IE]>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow, all">
+        <meta name="Author" content="Luis Riego">
+        <meta name="Keywords" content="symfony2, symfony, projeto, framework, php, php5, open-source, componentes, symphony, symfony framework, symfony tutorial, symfony brasil, brasil, symfony2 brasil">
+        <title>{% block title %}Symfony, O Framework PHP{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <!-- Latest compiled and minified CSS -->
+        {#<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">#}
+
+        <!-- Optional theme -->
+        {#<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">#}
+    </head>
+    {% block bodytag %}<body id="p-0" class="homepage" style="padding-top: 0px;">{% endblock %}
+        {% block sensio %}{% endblock %}
+        <div id="content_wrapper">
+            {% block menus %}{% endblock %}
+            {% block body %}
+                {% block sidebar %}
+                    {% block sdbmenu %}{% endblock %}
+                    {% block sdbcontents %}{% endblock %}
+                {% endblock %}
+                {% block content %}{% endblock %}
+            {% endblock %}
+            {% block aside %}{% endblock %}
+            {% block footer %}{% endblock %}
+        </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

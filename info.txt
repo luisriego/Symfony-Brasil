@@ -1,0 +1,3 @@
+- Instalar o Geocode para obter info dos visitantes.
+    https://github.com/geocoder-php/BazingaGeocoderBundle/blob/master/Resources/doc/index.md
+-Como llamar a un archivo json

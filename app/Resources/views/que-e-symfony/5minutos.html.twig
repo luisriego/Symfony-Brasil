@@ -1,0 +1,45 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-6-2-2" class="what-is-symfony" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li><a href="{{ path('que-e-symfony') }}">O que é Symfony</a></li>
+                        <li>Symfony em 5 minutos</li>
+                    </ol>
+
+                    <h1 class="content_title">Symfony em 5 minutos</h1>
+
+                    <div class="page-section">
+                        <div class="row">
+                            <div class="col-md-3 page-illustration">
+                                <img src="{{ asset('bundles/app/img/five_minutes.png') }}" alt="Cinco minutos">
+                            </div>
+                            <ul class="col-md-9 summary">
+                                <li><a href="{{ path('porque-usar') }}">Porque eu deveria usar um framework?</a></li>
+                                <li><a href="{{ path('quando-usar') }}">Quando eu deveria usar um framework?</a></li>
+                                <li><a href="{{ path('6-razoes') }}">6 boas razões para usar Symfony</a></li>
+                                <li><a href="{{ path('beneficios') }}">Os benefícios tecnológicos do Symfony em 6 lições fáceis</a></li>
+                                <li><a href="{{ path('criterios') }}">10 critérios para a escolha de um framework</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,219 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-6-2-2-3" class="what-is-symfony" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li><a href="{{ path('que-e-symfony') }}">O que é Symfony</a></li>
+                        <li><a href="{{ path('5-minutos') }}">Symfony em 5 minutos</a></li>
+                        <li class="active">6 boas razões para usar Symfony</li>
+                    </ol>
+
+                    <h1 class="content_title">
+                        6 boas razões para usar Symfony                                                                        </h1>
+
+                    <div class="page-intro">
+                        <p>
+                            Usar um Framework é bom. Fazer a escolha certa é ainda melhor. Sem ir muito fundo nas coisas
+                            e sem nenhuma ordem em particular, aqui estão 6 boas razões para utilizar Symfony, desde um
+                            ponto de vista estratégico
+                            <br>
+                            Para os aspectos técnicos, clique
+                            <a href="http://symfony.com/six-good-technical-reasons">aqui</a>. <small>(inglês)</small>
+                        </p>
+
+                    </div>
+
+                    <div class="page-section">
+                        <div class="row">
+                            <div class="col-md-2 page-illustration">
+                                <img src="{{ asset('bundles/app/img/reputation.png') }}" alt="reputação">
+                            </div>
+
+                            <div class="col-md-10">
+                                <h2 class="title_09">1. Reputação</h2>
+                                <p>
+                                    Rapidamente adotada por profissionais activos em PHP desde o seu lançamento em 2005,
+                                    Symfony, hoje, é um ambiente muito estável que é bem conhecido e reconhecido
+                                    internacionalmente. O número de suas referências atesta isso, como elas têm crescido
+                                    significativamente desde o seu lançamento. Symfony é também uma comunidade ativa;
+                                    desenvolvedores, integradores, usuários e outros colaboradores que participam do
+                                    aprimoramento contínuo desta ferramenta.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-section">
+                        <div class="row">
+                            <div class="col-md-2 page-illustration">
+                                <img src="{{ asset('bundles/app/img/sustainable.png') }}" alt="Continuidade">
+                            </div>
+
+                            <div class="col-md-10">
+                                <h2 class="title_09">2. Continuidade</h2>
+                                <p>
+                                    Por trás do Symfony há uma empresa: SensioLabs. Criada há mais de 12 anos, SensioLabs
+                                    é uma agência web que tem muitas grandes contas entre as suas referências. Projetado
+                                    para suas próprias necessidades, a estrutura do Symfony é, ainda hoje, a ferramenta
+                                    utilizada diariamente por suas próprias equipes para desenvolver projetos de clientes.
+                                    Projetado por profissionais para profissionais, o Symfony é antes de tudo uma
+                                    ferramenta pragmática, pensada para atender os requisitos do mundo real.
+                                </p>
+                                <p>
+                                    Permanência também é algo que diz respeito a apoio a longo prazo. Hoje, este
+                                    <a href="http://sensiolabs.com/en/support/sensiolabs_support.html">apoio</a> é
+                                    proporcionado naturalmente pela Sensio Labs. Mas há também todo um ecossistema que
+                                    tem crescido em torno do Symfony desde o seu lançamento: a comunidade (listas de
+                                    discussão, IRC, etc.) e as muitas empresas de serviços que investiram no framework.
+                                </p>
+                                <p>
+                                    Por último, é também com o objectivo para um desenvolvimento sustentável que Symfony
+                                    é distribuído sob licença Open Source MIT, que não impõe restrições e permite o
+                                    desenvolvimento Open Source, bem como aplicações proprietárias.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-section">
+                        <div class="row">
+                            <div class="col-md-2 page-illustration">
+                                <img src="{{ asset('bundles/app/img/references.png') }}" alt="">
+                            </div>
+
+                            <div class="col-md-10">
+                                <h2 class="title_09">3.	Referências</h2>
+                                <p>
+                                    Intranets, os principais sites públicos, redes sociais, sites de comunidades,
+                                    aplicações de gestão e de fluxo de trabalho, etc. Exemplos não faltam: centenas de
+                                    sites e aplicações de todos os tamanhos e de todos os tipos confiam em Symfony.
+                                    <br>
+                                    Este é especificamente o caso do Yahoo !, Dailymotion, Opensky.com, Exercise.com e
+                                    até mesmo aplicações como phpBB e Drupal.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-section">
+                        <div class="row">
+                            <div class="col-md-2 page-illustration">
+                                <img src="{{ asset('bundles/app/img/innovative.png') }}" alt="Inovação">
+                            </div>
+
+                            <div class="col-md-10">
+                                <h2 class="title_09">4.	Inovação</h2>
+                                <p>
+                                    Symfony é tudo o que você esperaria de um framework: velocidade, flexibilidade,
+                                    componentes reutilizáveis, etc. Depois, está a estrutura do que foi desenvolvido e a
+                                    utilização das melhores práticas. Nada mal!
+                                </p>
+                                <p>
+                                    Mas isso não é tudo! SensioLabs tem desenvolvido o hábito de agitar a ordem
+                                    estabelecida e está sempre buscando a excelência, Symfony (e toda a sua comunidade)
+                                    desenvolveu um senso de curiosidade que vai muito além de PHP. E nós não hesitamos
+                                    em inovar, buscando idéias em qualquer lugar e depois adaptá-las ao mundo de PHP,
+                                    como a injeção de dependências do mundo Java.
+                                    <br>
+                                    Por último, também com foco no desenvolvimento sustentável é que Symfony é
+                                    distribuído sob licença Open Source MIT, que não impõe restrições e permite o
+                                    desenvolvimento de Open Source, bem como aplicações proprietárias.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-section">
+                        <div class="row">
+                            <div class="col-md-2 page-illustration">
+                                <img src="{{ asset('bundles/app/img/resources.png') }}" alt="">
+                            </div>
+
+                            <div class="col-md-10">
+                                <h2 class="title_09">5. Recursos</h2>
+                                <p>
+                                    Ao usar o Symfony, você tem a certeza de nunca mais "estara a sós com sua tela."
+                                    Seja a questão do apoio da comunidade (listas de distribuição, IRC, etc.) ou o
+                                    suporte a empresa (consultoria,
+                                    <a
+                                        href="http://trainings.sensiolabs.com/"
+                                        rel="nofollow"
+                                        target="_blank">treinamento
+                                    </a>
+                                    , etc.), você vai sempre encontrar as respostas às suas perguntas.
+                                    <br>
+                                    Partindo do princípio de que "um framework indocumentado é um framework que não
+                                    existe", você também vai encontrar muitas obras dedicadas ao Symfony, que irão
+                                    ajudá-lo ao longo do desenvolvimento de seus sites e aplicativos.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-section">
+                        <div class="row">
+                            <div class="col-md-2 page-illustration">
+                                <img src="{{ asset('bundles/app/img/interoperable.png') }}" alt="">
+                            </div>
+
+                            <div class="col-md-10">
+                                <h2 class="title_09">6. Interoperabilidade </h2>
+                                <p>
+                                    A idéia por trás de Symfony: Não se tranca dentro de Symfony! Permita a si mesmo
+                                    construir aplicações que precisamente atenda às suas necessidades!
+                                    <br>
+                                    Symfony respeita os "estandars" existentes de PHP: PHPUnit, convenções de
+                                    nomenclatura para as classes, etc. Além disso, o Symfony também permite a utilização
+                                    de determinadas partes de seus blocos de construção de software (injector de
+                                    dependência, gestão de traduções, gerenciamento de formulários, etc.), sem
+                                    necessariamente usar a estrutura na sua totalidade.
+                                </p>
+                                <p>
+                                    No fundo, Symfony é tão interoperável que, utiliza blocos de construção externos
+                                    (ORM Doctrine, SwiftMailer, etc.) dentro da sua própria construção!
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-secondary page-summary">
+                        <div class="row">
+                            <div class="col-md-3 page-illustration">
+                                <img src="{{ asset('bundles/app/img/illustration_summary_page.gif') }}" alt="Resumo da ópera">
+                            </div>
+
+                            <div class="col-md-9">
+                                <p>
+                                    Você não se arrependerá, escolhendo Symfony! E ninguém jamais foi demitido por usar
+                                    Symfony.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-6-2-2-1" class="what-is-symfony">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li><a href="{{ path('que-e-symfony') }}">O que é Symfony</a></li>
+                        <li><a href="{{ path('5-minutos') }}">Symfony em 5 minutos</a></li>
+                        <li class="active">Quando eu deveria usar um framework?</li>
+                    </ol>
+                    <h1 class="content_title">Quando eu deveria usar um framework?</h1>
+
+                    <div class="page-intro">
+                        <p>
+                            Bem ... Sempre que você precisar, durante o desenvolvimento de uma aplicação web ou um site,
+                            é claro!
+                        </p>
+                        <p>
+                            Porque você faria com as próprias mãos uma mobilia personalizada se pode encontrar numa loja
+                            uma que se adapte perfeitamente a sua decoração? O mesmo acontece com aplicações web: Antes
+                            de mergulhar na criação de un framework, porque não pesquisar se ele já existe e está a sua
+                            disposição.
+                        </p>
+                    </div>
+
+                    <div class="page-section">
+                        <h2 class="title_09">Necessidades gerais vs. funções específicas</h2>
+                        <p>
+                            Além de um framework, existem outras soluções que estão disponíveis para desenvolver ambos,
+                            sites e aplicativos Web: CMS (Content Management System) e seus módulos complementares, bem
+                            como soluções profissionais empacotadas (CRM, soluções de e-commerce, etc.). Se as
+                            características nativas se alinham perfeitamente com as suas necessidades imediatas e
+                            futuras, não há dúvida enquanto a isso: Vá em frente! Não há sentido em reinventar a roda.
+                        </p>
+                        <p>
+                            Por outro lado, quando há necessidades específicas, regras de negócios específicas ou até
+                            mesmo a necessidade de misturar blocos já construidos (conteúdo e e-commerce, por exemplo),
+                            um framework é necessário: ele permite que uma aplicação seja desenvolvida em perfeita
+                            integração com as suas necessidades, enquanto se mantem atualizada.
+                        </p>
+
+                    </div>
+
+                    <div class="page-section">
+                        <h2 class="title_09">As perguntas certas</h2>
+                        <p>
+                            Para certificar-se de que você está fazendo a escolha certa, tanto para o curto como a longo
+                            prazo, é necessário fazer as perguntas certas:
+                        </p>
+                        <ol>
+                            <li>Quais são as minhas necessidades atuais? Elas estão cobertas por uma solução integrada?</li>
+                            <li>Quais as habilidades que eu preciso se eu optar um framework?</li>
+                            <li>Será que a solução desenvolvida poderá ser atualizada?</li>
+                        </ol>
+                        <p>
+                            E, finalmente, não cair na armadilha da "aparente simplicidade dos requisitos." Em muitos
+                            casos, rapidamente torna-se evidente que tanto as regras de negócio quanto as  funções a
+                            serem implementadas não são tão simples de pôr em prática.
+                        </p>
+                        <p>
+                            A propósito, Symfony está muito bem adaptado para "mini-projetos."
+                        </p>
+
+                    </div>
+
+                    <div class="box-secondary page-summary">
+                        <div class="row">
+                            <div class="col-md-3 page-illustration">
+                                <img src="{{ asset('bundles/app/img/illustration_summary_page.gif') }}" alt="Contar nossa história" />
+                            </div>
+
+                            <div class="col-md-9">
+                                <p>Um framework pode ser adaptado a todos os requisitos.</p>
+                                <p>
+                                    ... Mas isso nem sempre é necessário, especialmente quando as exigências são de
+                                    natureza mais genérica.
+                                </p>
+                                <p>
+                                    Antes de fazer a sua escolha, é importante mapear suas necessidades atuais e futuras
+                                    em detalhes, e então comparar as várias soluções disponíveis no mercado.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

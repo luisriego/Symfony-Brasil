@@ -1,0 +1,31 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-5-8" class="doc doc_article quick_tour" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus e tabelas de conteudo #}
+                {% block sidebar %}
+                    {% block sdb-menu %}
+                        {{ include('@App/sidebar-menu/_doc-sidebar.html.twig') }}
+                    {% endblock %}
+                    {% block sdb-content %}
+                        <h2>Tabela de Conteudos</h2>
+                    {% endblock %}
+
+                {% endblock sidebar %}
+
+                {# Conteudo da página #}
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

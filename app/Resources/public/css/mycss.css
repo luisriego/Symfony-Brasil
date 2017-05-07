@@ -1,0 +1,191 @@
+.btn-download, .btn-download:hover, .btn-download:focus {
+    background: #8cd02c url(../img/icon-download.svg) no-repeat 15px 50%;
+    border-radius: 5px;
+    box-shadow: none;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 15px 12px 50px;
+    text-transform: uppercase;
+}
+
+.btn, .btn:focus {
+    background-color: #a9db3a;
+    -webkit-box-shadow: 0 1px 2px #12581f;
+    box-shadow: 0 1px 2px #12581f;
+    background-image: -webkit-linear-gradient(top,#a9db3a 0,#6a9211 100%);
+    background-image: linear-gradient(to bottom,#a9db3a 0,#6a9211 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFA9DB3A',endColorstr='#FF6A9211',GradientType=0);
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+
+#sym-feat {
+    border-bottom: 1px solid #f5f5f5;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-style: italic;
+    font-size: 21px;
+    line-height: 1.5;
+    margin-bottom: 2em;
+    padding-bottom: 1.5em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#acheuno {
+    margin-bottom: 26px;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    color: #7aba20;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+#main .symfony-stats li {
+    color: #7aba20;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 40px;
+    line-height: 32px;
+    margin-bottom: 0;
+    padding: 0 24px;
+    text-align: center;
+}
+
+#main .symfony-stats li span {
+    font-size: 14px;
+    display: block;
+}
+
+#main .symfony-stats li:last-child {
+    padding-right: 0;
+}
+
+.command select {
+    color: #18171b;
+    margin-left: 2px;
+}
+
+
+
+#aviso {
+    margin: 10px 0 0 20px;
+}
+
+.command {
+    background: #18171b;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 14px;
+    padding: 15px 80px 15px 10px;
+    position: relative;
+    margin: -.75em 0 2em;
+}
+
+.command .btn-copy {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    bottom: 3px;
+    background-image: -webkit-linear-gradient(top, #eee 0, #ccc 100%);
+    background-image: linear-gradient(to bottom, #eee 0, #ccc 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEEEEEE', endColorstr='#FFCCCCCC', GradientType=0);
+    border-radius: 4px;
+    box-shadow: 0 1px 2px #63606b;
+    color: #18171b;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 23px;
+    outline: 0;
+    padding: 5px 8px 5px 2px;
+    text-transform: uppercase;
+    width: 100px;
+}
+
+.certificado {
+    font-size: 13px;
+    font-family: Lucida Sans Unicode, Lucida Grande, Verdana, Arial, Helvetica, sans-serif;
+}
+
+#nav-version {
+    border-bottom: 0;
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+    width: 99%;
+}
+
+#nav-version li {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    margin: 0;
+    padding: 20px 20px 10px;
+    font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+#nav-version li.active {
+     -webkit-box-shadow: 0 -1px 10px 0 rgba(50,50,50,0.3);
+     box-shadow: 0 -1px 10px 0 rgba(50,50,50,0.3);
+}
+
+#version-tab {
+    width: 47%;
+}
+.nav-tabs>li {
+    float: left;
+    margin-bottom: -1px;
+}
+
+#nav-version li.version-lts {
+    width: 53%;
+    float: left;
+}
+
+#titulo-full-stack {
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 36px;
+    margin: 0 0 .8em;
+    text-align: center;
+}
+
+.nav-tabs h3 {
+    font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.nav-tabs h3 strong{
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+#nav-version li small {
+    float: right;
+}
+
+#nav-version li small span.date {
+    display: block;
+    font-size: 15px;
+}
+
+.installation-help {
+    padding: 25px 20px 10px;
+}
+
+.installation-help-reveal .icon-arrow-right, body#p1 .installation-help .installation-help-reveal .icon-arrow-down {
+    font-size: 19px;
+    color: #7aba20;
+}

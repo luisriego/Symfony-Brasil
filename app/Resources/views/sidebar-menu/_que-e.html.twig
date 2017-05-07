@@ -1,0 +1,148 @@
+<div id="sidebar" class="col-sm-3">
+    <div id="sidebar-content">
+        <div class="submenu">
+            <ul class="list_submenu list-unstyled l_tinynav1">
+                <li>
+                    <a href="{{ path('num-relance') }}">
+                        Symfony num relance
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('componentes') }}">
+                        Componentes de Symfony
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('projects-using') }}">
+                        Projetos que utilizam Symfony
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('case-studies') }}">
+                        Estudo de Casos
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('roadmap') }}">
+                        Symfony, mapa do caminho
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('seguranca') }}">
+                        Política de Segurança
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('logo') }}">
+                        Logo &amp; Screenshots
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('trademarks') }}">
+                        Marcas Registradas &amp; Licenças
+                    </a>
+                </li>
+            </ul>
+            <label for="tinynav1" class="tinynav_label tinynav1_label">Menu</label>
+            <select id="tinynav1" class="tinynav tinynav1">
+                <option value="/at-a-glance">
+                    Symfony at a Glance
+                </option><option value="/components">
+                    Symfony Components
+                </option><option value="/projects">
+                    Projects using Symfony
+                </option><option value="/blog/category/case-studies">
+                    Case Studies
+                </option><option value="/roadmap">
+                    Symfony Roadmap
+                </option><option value="/doc/current/contributing/code/security.html">
+                    Security Policy
+                </option><option value="/logo">
+                    Logo &amp; Screenshots
+                </option><option value="/license">
+                    Trademark &amp; Licenses
+                </option><option value="/legacy" selected="selected">
+                    symfony1 Legacy
+                </option></select>
+        </div>
+
+        <div class="feedback">
+            <h2 class="title_05">Feedback &amp; Support</h2>
+            <p>
+                <a href="https://github.com/symfony/symfony-marketing/edit/master/views/en/what-is-symfony.html.twig">Edit this page</a> to fix typos
+                and to improve its contents.
+            </p>
+            <p>
+                <a href="http://symfony.com/support">
+                    Ask for Symfony support.
+                </a>
+            </p>
+            <p>Leer esta página em:</p>
+            <div class="box_version_wrapper">
+                <div class="version_wrapper">
+                    <div class="version">
+                        Português
+                        <span class="arrow"><img src="{{ asset('bundles/app/img/down_arrow_white.png') }}" alt=""></span>
+                    </div>
+                    <div class="other_version hidden">
+                        <ul>
+                            <li>
+                                <a href="http://symfony.com/es/what-is-symfony">
+                                    Español
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-edit">
+                <a href="https://github.com/symfony/symfony-marketing/edit/master/views/en/what-is-symfony.html.twig">Edit this page</a>
+            </div>
+        </div>
+
+        <div class="ads">
+            <div class="ad" id="ad_jobs">
+                <h3>
+                    <span style="background-color: #0088cc; color: #fff; padding: 0 4px">Job</span>
+                    <a href="http://jobs.sensiolabs.com/FR/CDI/igraal-developpeur-php-backend-h-f-3">iGraal</a>
+                </h3>
+                <div>BOULOGNE-BILLANCOURT, France<br>Développeur PHP backend H/F</div>
+                <div><cite>jobs.sensiolabs.com</cite></div>
+            </div>
+            <div class="ad" id="ad_trainings_1">
+                <h3><a href="http://trainings.sensiolabs.com/en/training/getting-started-with-symfony2">Master Symfony2 fundamentals</a></h3>
+                <div>Be trained by SensioLabs experts (2 to 6 day sessions -- French or English).</div>
+                <div><cite>trainings.sensiolabs.com</cite></div>
+            </div>
+            <div class="ad" id="ad_support_1">
+                <h3><a href="http://sensiolabs.com/en/support/sensiolabs_support.html">Discover the SensioLabs Support</a></h3>
+                <div>Access to the SensioLabs Competency Center for an exclusive and tailor-made support on Symfony</div>
+                <div><cite>sensiolabs.com</cite></div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#ad_trainings_1").click(function () {
+                    _gaq.push(['_trackEvent', 'Ads', 'Ads', 'trainings_1']);
+                });
+                $("#ad_support_1").click(function () {
+                    _gaq.push(['_trackEvent', 'Ads', 'Ads', 'support_1']);
+                });
+            });
+        </script>
+        <div class="ads">
+            <a id="ad-blackfire" href="https://blackfire.io/24-days">
+                <img
+                        src="{{ asset('bundles/app/img/blackfire-profiler.png') }}"
+                        class="img-responsive"
+                        alt="Blackfire Profiler Fire up your PHP Apps Performance">
+            </a>
+            <a id="ad-insight" href="https://insight.sensiolabs.com/">
+                <img
+                        src="{{ asset('bundles/app/img/sensiolabsinsight.png') }}"
+                        class="img-responsive" alt="PHP Project Quality Done Right">
+            </a>
+        </div>
+    </div>
+</div>

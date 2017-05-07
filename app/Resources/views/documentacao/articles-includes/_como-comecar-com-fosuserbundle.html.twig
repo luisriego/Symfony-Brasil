@@ -1,0 +1,785 @@
+<ol class="breadcrumb">
+    <li><a href="{{ path('homepage') }}">Home</a></li>
+    <li><a href="{{ path('documentacao') }}">Documentação</a></li>
+    <li><a href="#">Bundles</a></li>
+    <li class="active">Começar com FOSUserBundle</li>
+</ol>
+
+<h1 class="content_title">Começar com FOSUserBundle</h1>
+<div class="page">
+
+    <div id="doc-content-tools">
+        <div class="doc-switcher">
+            <div class="doc-switcher-wrapper">
+                <div class="selected">
+                    version 2.0
+                </div>
+            </div>
+        </div>
+
+        <div id="doc-edit">
+            <a href="#">Erros na página?</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="section" id="getting-started-with-fosuserbundle">
+    <p>
+        O componente de Segurança de Symfony proporciona um framework com muita
+        flexibilidade na quesito segurança que permite a você carregar usuarios
+        desde a configuração, a base de dados, ou de onde você imaginar. O
+        FOSUserBundle está contruido com base neste componente deixando mais
+        fácil e rápido o armazenamento dos usuários na bade de dados.
+    </p>
+    <p>
+        Se você precisa persistir e buscar usuários na base de dados para o seu
+        sistema, então você está no lugar certo.
+    </p>
+    <div class="section" id="prerequisites">
+        <h2>Pre-requisitos<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+        <p>
+            Esta versião do bundle requiere Symfony 2.7+. Se você utiliza uma
+            versão mais antiga de Symfony, por favor queira utilizar a versão.
+        </p>
+        <div class="admonition-wrapper">
+            <div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+                <p class="last">
+                    Uma lacuna na documentação oficial aparece como erro comum, o seguinte erro
+                    aparece ao instalar o passo 1:
+                    [Symfony\Component\Config\Definition\Exception\InvalidConfigurationException]
+                    The child node "from_email" at path "fos_user" must be configured.
+                    Para corregir este erro, primeiro coloca o código abaixo no seu arquivo
+                    <code class="notranslate">app/config/config.yml</code>
+                </p>
+            </div>
+        </div>
+        <p>
+        <div class="literal-block notranslate"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+
+<span class="l-Scalar-Plain">fos_user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">db_driver</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ORM</span>
+    <span class="l-Scalar-Plain">firewall_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">main</span>
+    <span class="l-Scalar-Plain">user_class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">AppBundle\Entity\User</span>
+    <span class="l-Scalar-Plain">from_email</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">address</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">app@yoursite.com</span>
+        <span class="l-Scalar-Plain">sender_name</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">Seu nome aqui</span>
+</pre></div>
+                        </td></tr></table></div></div>
+        </p>
+        <div class="section" id="translations">
+            <h3>Traduções<a class="headerlink" href="#translations" title="Permalink to this headline">¶</a></h3>
+            <p>
+                Se você deseja utilizar os textos por defeto que o bundle
+                proporciona, certifique-se de que a configuração do tradutor
+                esteja operativa.
+            </p>
+            <div class="literal-block notranslate"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+
+<span class="l-Scalar-Plain">framework</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">translator</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
+</pre></div>
+                            </td></tr></table></div></div>
+            <p>
+                Para maiores informações sobre traduções, confira
+                <a
+                        class="reference external"
+                        href="https://symfony.com/doc/current/book/translation.html">
+                    a documentação do Symfony
+                </a>.
+            </p>
+        </div>
+    </div>
+    <div class="section" id="installation">
+        <h2>Instalação<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+        <p>A instalação é rápida, só 7 passos.</p>
+        <ol class="arabic simple">
+            <li>Utilize o composer para fazer o Download do FOSUserBundle</li>
+            <li>Ative o bundle</li>
+            <li>Crie sua classe Usuário</li>
+            <li>Configure sua applicação no security.yml</li>
+            <li>Configure o FOSUserBundle</li>
+            <li>Importe o routing do FOSUserBundle</li>
+            <li>Atualize o esquema da sua base de dados</li>
+        </ol>
+        <div class="section" id="step-1-download-fosuserbundle-using-composer">
+            <h3>Passo 1: Utilize o composer para fazer o Download do FOSUserBundle
+                <a
+                        class="headerlink"
+                        href="#step-1-download-fosuserbundle-using-composer"
+                        title="Permalink to this headline">¶
+                </a>
+            </h3>
+            <p>Solicite o bundle com composer:</p>
+            <div class="literal-block notranslate"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>composer require friendsofsymfony/user-bundle <span class="s2">&quot;~2.0&quot;</span>
+</pre></div>
+                            </td></tr></table></div></div>
+            <p>
+                Composer irá instalar o bundle no diretorio
+                <code class="notranslate">vendor/friendsofsymfony/user-bundle</code>
+                do seu projeto.
+            </p>
+        </div>
+        <div class="section" id="step-2-enable-the-bundle">
+            <h3>Passo 2: Ative o bundle
+                <a
+                        class="headerlink"
+                        href="#step-2-enable-the-bundle"
+                        title="Permalink to this headline">¶
+                </a>
+            </h3>
+            <p>Ative o  bundle no kernel:</p>
+            <div class="literal-block notranslate"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="c1">// app/AppKernel.php</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">registerBundles</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$bundles</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="c1">// ...</span>
+        <span class="k">new</span> <span class="nx">FOS\UserBundle\FOSUserBundle</span><span class="p">(),</span>
+        <span class="c1">// ...</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+                            </td></tr></table></div></div>
+        </div>
+        <div class="section" id="step-3-create-your-user-class">
+            <h3>Passo 3: Crie sua classe Usuário<a class="headerlink" href="#step-3-create-your-user-class" title="Permalink to this headline">¶</a></h3>
+            <p>
+                O objetivo deste bundle é persistir a classe <code class="notranslate">User</code>
+                na base de dados(MySql, MongoDB, CouchDB, etc). Seu primeiro trabalho é criar a
+                classe <code class="notranslate">User</code> da sua aplicação. Esta classe podera
+                ter a aparência  ou atuar como você quiser: adicione as propriedades e métodos que
+                você achar necessários. Está é <em>sua</em> classe <code class="notranslate">User</code>.
+            </p>
+            <p>
+                O bundle fornece classes base que já estão mapeadas para a maioria dos campos
+                para facilitar a criação de sua entidade. Veja aqui como utiliza-lo:
+            </p>
+            <ol class="arabic simple">
+                <li>
+                    Faça um 'Extend' a classe base <code class="notranslate">User</code>
+                    (A classe a ser utilizada depende do seu tipo de armazenamento)
+                </li>
+                <li>
+                    Mapeie o campo <code class="notranslate">id</code>. Ele deve ser 'protected',
+                    uma vez que é herdado da classe pai.
+                </li>
+            </ol>
+            <div class="admonition-wrapper">
+                <div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+                    <p class="last">
+                        Quando você faz um 'extend' da superclasse mapeada fornecida pelo bundle,
+                        não redefina o mapeamento para os outros campos, como é fornecido pelo bundle.
+                    </p>
+                </div>
+            </div>
+            <p>
+                Nas seções a seguir, você verá exemplos de como a sua classe
+                <code class="notranslate">User</code> deve ser exibida, dependendo de como
+                você armazena seus usuários (Doctrine ORM, ODM MongoDB ou ODM CouchDB).
+            </p>
+            <div class="admonition-wrapper">
+                <div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+                    <p class="last">
+                        O documento usa um bundle chamado AppBundle de acordo com as práticas
+                        recomendadas do Symfony. No entanto, você pode naturalmente colocar sua
+                        classe <code class="notranslate">user</code> no pacote que você desejar.
+                    </p>
+                </div></div>
+            <div class="admonition-wrapper">
+                <div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+                    <p class="last">
+                        Se você sobrescribir o método __construct () na sua classe User,
+                        certifique-se de chamar "parent::__construct()", já que a classe base User
+                        depende disso para inicializar alguns campos.
+                    </p>
+                </div>
+            </div>
+            <div class="section" id="a-doctrine-orm-user-class">
+                <h4>a) Classe User com o ORM do Doctrine<a class="headerlink" href="#a-doctrine-orm-user-class" title="Permalink to this headline">¶</a></h4>
+                <p>
+                    Se você estiver persistindo seus usuários através do ORM do Doctrine, sua
+                    classe User deve estar no namespace da entidade do seu bundle e deve ter este
+                    aspecto para começar:
+                </p>
+                <div class="configuration-block">
+                    <ul class="simple">
+                        <li><em>Annotations</em><div class="literal-block notranslate"><div class="highlight-php-annotations"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="c1">// src/AppBundle/Entity/User.php</span>
+
+<span class="k">namespace</span> <span class="nx">AppBundle\Entity</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">FOS\UserBundle\Entity\User</span> <span class="k">as</span> <span class="nx">BaseUser</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Doctrine\ORM\Mapping</span> <span class="k">as</span> <span class="nx">ORM</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @ORM\Entity</span>
+<span class="sd"> * @ORM\Table(name=&quot;fos_user&quot;)</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">BaseUser</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @ORM\Id</span>
+<span class="sd">     * @ORM\Column(type=&quot;integer&quot;)</span>
+<span class="sd">     * @ORM\GeneratedValue(strategy=&quot;AUTO&quot;)</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$id</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>
+        <span class="c1">// your own logic</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+                                            </td></tr></table></div></div>
+                        </li>
+                        <li><em>YAML</em><div class="literal-block notranslate"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># src/AppBundle/Resources/config/doctrine/User.orm.yml</span>
+<span class="l-Scalar-Plain">AppBundle\Entity\User</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">entity</span>
+    <span class="l-Scalar-Plain">table</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fos_user</span>
+    <span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+            <span class="l-Scalar-Plain">generator</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">strategy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">AUTO</span>
+</pre></div>
+                                            </td></tr></table></div></div>
+                        </li>
+                        <li><em>XML</em><div class="literal-block notranslate"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="c">&lt;!-- src/AppBundle/Resources/config/doctrine/User.orm.xml --&gt;</span>
+<span class="nt">&lt;doctrine-mapping</span> <span class="na">xmlns=</span><span class="s">&quot;http://doctrine-project.org/schemas/orm/doctrine-mapping&quot;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;entity</span> <span class="na">name=</span><span class="s">&quot;AppBundle\Entity\User&quot;</span> <span class="na">table=</span><span class="s">&quot;fos_user&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;id</span> <span class="na">name=</span><span class="s">&quot;id&quot;</span> <span class="na">type=</span><span class="s">&quot;integer&quot;</span> <span class="na">column=</span><span class="s">&quot;id&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;generator</span> <span class="na">strategy=</span><span class="s">&quot;AUTO&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;/entity&gt;</span>
+<span class="nt">&lt;/doctrine-mapping&gt;</span>
+</pre></div>
+                                            </td></tr></table></div></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="admonition-wrapper">
+                    <div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+                        <p class="last">
+                            <code class="notranslate">user</code> é uma palavra-chave reservada
+                            no standard SQL. Se você precisar usar palavras reservadas, rode-as
+                            com acentos graves, ex. <code class="notranslate">&#64;ORM\Table(name=&quot;`user`&quot;)</code>
+                        </p>
+                    </div></div>
+            </div>
+            {#<div class="section" id="b-mongodb-user-class">#}
+            {#<h4>b) Classe User no MongoDB<a class="headerlink" href="#b-mongodb-user-class" title="Permalink to this headline">¶</a></h4>#}
+            {#<p>If you're persisting your users via the Doctrine MongoDB ODM, then your <code class="notranslate">User</code>#}
+            {#class should live in the <code class="notranslate">Document</code> namespace of your bundle and look like#}
+            {#this to start:</p>#}
+            {#<div class="literal-block notranslate"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1#}
+            {#2#}
+            {#3#}
+            {#4#}
+            {#5#}
+            {#6#}
+            {#7#}
+            {#8#}
+            {#9#}
+            {#10#}
+            {#11#}
+            {#12#}
+            {#13#}
+            {#14#}
+            {#15#}
+            {#16#}
+            {#17#}
+            {#18#}
+            {#19#}
+            {#20#}
+            {#21#}
+            {#22#}
+            {#23#}
+            {#24</pre></div></td><td class="code"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>#}
+            {#<span class="c1">// src/AppBundle/Document/User.php</span>#}
+
+            {#<span class="k">namespace</span> <span class="nx">AppBundle\Document</span><span class="p">;</span>#}
+
+            {#<span class="k">use</span> <span class="nx">FOS\UserBundle\Document\User</span> <span class="k">as</span> <span class="nx">BaseUser</span><span class="p">;</span>#}
+            {#<span class="k">use</span> <span class="nx">Doctrine\ODM\MongoDB\Mapping\Annotations</span> <span class="k">as</span> <span class="nx">MongoDB</span><span class="p">;</span>#}
+
+            {#<span class="sd">/**</span>#}
+            {#<span class="sd"> * @MongoDB\Document</span>#}
+            {#<span class="sd"> */</span>#}
+            {#<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">BaseUser</span>#}
+            {#<span class="p">{</span>#}
+            {#<span class="sd">/**</span>#}
+            {#<span class="sd">     * @MongoDB\Id(strategy=&quot;auto&quot;)</span>#}
+            {#<span class="sd">     */</span>#}
+            {#<span class="k">protected</span> <span class="nv">$id</span><span class="p">;</span>#}
+
+            {#<span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>#}
+            {#<span class="p">{</span>#}
+            {#<span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>#}
+            {#<span class="c1">// your own logic</span>#}
+            {#<span class="p">}</span>#}
+            {#<span class="p">}</span>#}
+            {#</pre></div>#}
+            {#</td></tr></table></div></div>#}
+            {#</div>#}
+            {#<div class="section" id="c-couchdb-user-class">#}
+            {#<h4>c) CouchDB User class<a class="headerlink" href="#c-couchdb-user-class" title="Permalink to this headline">¶</a></h4>#}
+            {#<p>If you're persisting your users via the Doctrine CouchDB ODM, then your <code class="notranslate">User</code>#}
+            {#class should live in the <code class="notranslate">CouchDocument</code> namespace of your bundle and look#}
+            {#like this to start:</p>#}
+            {#<div class="literal-block notranslate"><div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1#}
+            {#2#}
+            {#3#}
+            {#4#}
+            {#5#}
+            {#6#}
+            {#7#}
+            {#8#}
+            {#9#}
+            {#10#}
+            {#11#}
+            {#12#}
+            {#13#}
+            {#14#}
+            {#15#}
+            {#16#}
+            {#17#}
+            {#18#}
+            {#19#}
+            {#20#}
+            {#21#}
+            {#22#}
+            {#23#}
+            {#24</pre></div></td><td class="code"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>#}
+            {#<span class="c1">// src/AppBundle/CouchDocument/User.php</span>#}
+
+            {#<span class="k">namespace</span> <span class="nx">AppBundle\CouchDocument</span><span class="p">;</span>#}
+
+            {#<span class="k">use</span> <span class="nx">FOS\UserBundle\Document\User</span> <span class="k">as</span> <span class="nx">BaseUser</span><span class="p">;</span>#}
+            {#<span class="k">use</span> <span class="nx">Doctrine\ODM\CouchDB\Mapping\Annotations</span> <span class="k">as</span> <span class="nx">CouchDB</span><span class="p">;</span>#}
+
+            {#<span class="sd">/**</span>#}
+            {#<span class="sd"> * @CouchDB\Document</span>#}
+            {#<span class="sd"> */</span>#}
+            {#<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">BaseUser</span>#}
+            {#<span class="p">{</span>#}
+            {#<span class="sd">/**</span>#}
+            {#<span class="sd">     * @CouchDB\Id</span>#}
+            {#<span class="sd">     */</span>#}
+            {#<span class="k">protected</span> <span class="nv">$id</span><span class="p">;</span>#}
+
+            {#<span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>#}
+            {#<span class="p">{</span>#}
+            {#<span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">();</span>#}
+            {#<span class="c1">// your own logic</span>#}
+            {#<span class="p">}</span>#}
+            {#<span class="p">}</span>#}
+            {#</pre></div>#}
+            {#</td></tr></table></div></div>#}
+            {#</div>#}
+            {#<div class="section" id="d-propel-1-x-user-class">#}
+            {#<h4>d) Propel 1.x User class<a class="headerlink" href="#d-propel-1-x-user-class" title="Permalink to this headline">¶</a></h4>#}
+            {#<p>If you don't want to add your own logic in your user class, you can simply use#}
+            {#<code class="notranslate">FOS\UserBundle\Propel\User</code> as user class and you don't have to create#}
+            {#another class.</p>#}
+            {#<p>If you want to add your own fields, you can extend the model class by overriding the database schema.#}
+            {#Just copy the <code class="notranslate">Resources/config/propel/schema.xml</code> file to <code class="notranslate">app/Resources/FOSUserBundle/config/propel/schema.xml</code>,#}
+            {#and customize it to fit your needs.</p>#}
+            {#</div>#}
+        </div>
+        <div class="section" id="step-4-configure-your-application-s-security-yml">
+            <h3>Passo 4: Configure sua applicação no security.yml<a class="headerlink" href="#step-4-configure-your-application-s-security-yml" title="Permalink to this headline">¶</a></h3>
+            <p>
+                Para que o componente de segurança do Symfony use o FOSUserBundle, você deve
+                informá-lo para fazer isso no arquivo <code class="notranslate">security.yml</code>.
+                O arquivo <code class="notranslate">security.yml</code> é onde a configuração de
+                segurança básica para o aplicativo está contida.
+            </p>
+            <p>
+                Abaixo está um exemplo mínimo da configuração necessária para usar o FOSUserBundle em seu aplicativo:
+            </p>
+            <div class="literal-block notranslate"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># app/config/security.yml</span>
+<span class="l-Scalar-Plain">security</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">encoders</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">FOS\UserBundle\Model\UserInterface</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">bcrypt</span>
+
+    <span class="l-Scalar-Plain">role_hierarchy</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">ROLE_ADMIN</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">ROLE_USER</span>
+        <span class="l-Scalar-Plain">ROLE_SUPER_ADMIN</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ROLE_ADMIN</span>
+
+    <span class="l-Scalar-Plain">providers</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">fos_userbundle</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fos_user.user_provider.username</span>
+
+    <span class="l-Scalar-Plain">firewalls</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">main</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">pattern</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">^/</span>
+            <span class="l-Scalar-Plain">form_login</span><span class="p-Indicator">:</span>
+                <span class="l-Scalar-Plain">provider</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fos_userbundle</span>
+                <span class="l-Scalar-Plain">csrf_provider</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">security.csrf.token_manager</span> <span class="c1"># Use form.csrf_provider instead for Symfony &lt;2.4</span>
+            <span class="l-Scalar-Plain">logout</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">true</span>
+            <span class="l-Scalar-Plain">anonymous</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">true</span>
+
+    <span class="l-Scalar-Plain">access_control</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/login$</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/register</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/resetting</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">IS_AUTHENTICATED_ANONYMOUSLY</span> <span class="p-Indicator">}</span>
+        <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">path</span><span class="p-Indicator">:</span> <span class="nv">^/admin/</span><span class="p-Indicator">,</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">ROLE_ADMIN</span> <span class="p-Indicator">}</span>
+</pre></div>
+                            </td></tr></table></div></div>
+            <p>
+                Na seção <code class="notranslate">providers</code>, você está fazendo com que o
+                bandle utilize o serviço disponibilizado através do alias <code class="notranslate">fos_userbundle</code>.
+                O id do serviço do provedor de usuários do bundle é <code class="notranslate">fos_user.user_provider.username</code>.
+            </p>
+            <p>
+                Em seguida, dê uma olhada e examine a seção <code class="notranslate">firewalls</code>.
+                Aqui nós declaramos um firewall chamado <code class="notranslate">main</code>.
+                Ao especificar <code class="notranslate">form_login</code>, você disse ao Symfony
+                que a qualquer momento uma requisição será feita a esse firewall que leva ao usuário
+                a autenticar-se, o usuário será redirecionado para um formulário onde ele poderá
+                inserir suas credenciais. Não deve surpreender que você tenha especificado o serviço
+                de provedor de usuário que declaramos anteriormente como o provedor para o firewall
+                a ser usado como parte do processo de autenticação.
+            </p>
+            <div class="admonition-wrapper">
+                <div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+                    <p class="last">
+                        Embora tenhamos usado o mecanismo de login do formulário neste exemplo,
+                        o serviço de provedor de usuário FOSUserBundle é compatível com muitos
+                        outros métodos de autenticação também. Leia a documentação do componente
+                        Symfony Security para obter mais informações sobre os outros tipos de
+                        métodos de autenticação.
+                    </p>
+                </div>
+            </div>
+            <p>
+                A seção <code class="notranslate">access_control</code> é onde você especifica
+                as credenciais necessárias para os usuários que tentam acessar partes específicas
+                do seu aplicativo. O bundle requer que o formulário de login e todas as rotas
+                usadas para criar um usuário e redefinir a senha estejam disponíveis para usuários
+                não autenticados, mas use o mesmo firewall das páginas que você deseja proteger
+                com o bundle. É por isso que você especificou que qualquer solicitação correspondente
+                ao padrão <code class="notranslate">/login</code> ou iniciando com
+                <code class="notranslate">/register</code> ou <code class="notranslate">/resetting</code>
+                foi disponibilizada para usuários anônimos. Você também especificou que qualquer
+                solicitação começando com <code class="notranslate">/admin</code> exigirá que um
+                usuário tenha a função ROLE_ADMIN.
+            </p>
+            <p>
+                Para obter mais informações sobre como configurar o arquivo <code class="notranslate">security.yml</code>,
+                leia a
+                <a class="reference external" href="https://symfony.com/doc/current/book/security.html">documentação do componente de segurança Symfony</a>.
+            </p>
+            <div class="admonition-wrapper">
+                <div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+                    <p class="last">
+                        Preste muita atenção ao nome, <code class="notranslate">main</code>, que
+                        damos ao firewall no qual o FOSUserBundle está configurado. Você usará
+                        isso na próxima etapa ao configurar o FOSUserBundle.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="step-5-configure-the-fosuserbundle">
+            <h3>Passo 5: Configure o FOSUserBundle<a class="headerlink" href="#step-5-configure-the-fosuserbundle" title="Permalink to this headline">¶</a></h3>
+            <p>
+                Agora que você configurou corretamente o <code class="notranslate">config.yml</code>
+                do seu aplicativo para trabalhar com o FOSUserBundle, o próximo passo é configurar
+                o bundle para trabalhar com as necessidades específicas de seu aplicativo.
+            </p>
+            <p>
+                Adicione a seguinte configuração ao arquivo <code class="notranslate">config.yml</code>
+                de acordo com o tipo de armazenamento de dados que você está usando.
+            </p>
+            <div class="configuration-block">
+                <ul class="simple">
+                    <li><em>YAML</em><div class="literal-block notranslate"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># app/config/config.yml</span>
+<span class="l-Scalar-Plain">fos_user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">db_driver</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">orm</span> <span class="c1"># other valid values are &#39;mongodb&#39;, &#39;couchdb&#39; and &#39;propel&#39;</span>
+    <span class="l-Scalar-Plain">firewall_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">main</span>
+    <span class="l-Scalar-Plain">user_class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">AppBundle\Entity\User</span>
+</pre></div>
+                                        </td></tr></table></div></div>
+                    </li>
+                    <li><em>XML</em><div class="literal-block notranslate"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">&lt;!-- app/config/config.xml --&gt;</span>
+
+<span class="c">&lt;!-- other valid &#39;db-driver&#39; values are &#39;mongodb&#39; and &#39;couchdb&#39; --&gt;</span>
+<span class="nt">&lt;fos_user:config</span>
+    <span class="na">db-driver=</span><span class="s">&quot;orm&quot;</span>
+    <span class="na">firewall-name=</span><span class="s">&quot;main&quot;</span>
+    <span class="na">user-class=</span><span class="s">&quot;AppBundle\Entity\User&quot;</span>
+<span class="nt">/&gt;</span>
+</pre></div>
+                                        </td></tr></table></div></div>
+                    </li>
+                </ul>
+            </div>
+            <p>Somente três valores de configuração são necessários para usar o bundle:</p>
+            <ul class="simple">
+                <li>O tipo de armazenamento de dados que você está usando (
+                    <code class="notranslate">orm</code>, <code class="notranslate">mongodb</code>,
+                    <code class="notranslate">couchdb</code> ou <code class="notranslate">propel</code>).
+                </li>
+                <li>O nome do firewall que você configurou na Etapa 4.</li>
+                <li>
+                    O nome de classe totalmente qualificado (FQCN) da classe
+                    <code class="notranslate">User</code> que você criou na etapa 3.
+                </li>
+            </ul>
+            <div class="admonition-wrapper">
+                <div class="caution"></div><div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+                    <p class="last">
+                        Ao usar uma das implementações do Doctrine, você precisa usar a opção
+                        <code class="notranslate">auto_mapping</code> do bundle correspondente
+                        (feito por default pelo DoctrineBundle na distribuição standard) ou
+                        ativar o mapeamento para FOSUserBundle caso contrário o mapeamento base será ignorado.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="step-6-import-fosuserbundle-routing-files">
+            <h3>Passo 6: Importe o routing do FOSUserBundle<a class="headerlink" href="#step-6-import-fosuserbundle-routing-files" title="Permalink to this headline">¶</a></h3>
+            <p>
+                Agora que você ativou e configurou o bundle, tudo o que resta fazer é importar
+                os arquivos de roteamento do FOSUserBundle.
+            </p>
+            <p>
+                Ao importar os arquivos de roteamento, você terá páginas feitas para coisas como
+                fazer login, criar usuários, etc.
+            </p>
+            <div class="configuration-block">
+                <ul class="simple">
+                    <li><em>YAML</em><div class="literal-block notranslate"><div class="highlight-yaml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># app/config/routing.yml</span>
+<span class="l-Scalar-Plain">fos_user_security</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@FOSUserBundle/Resources/config/routing/security.xml&quot;</span>
+
+<span class="l-Scalar-Plain">fos_user_profile</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@FOSUserBundle/Resources/config/routing/profile.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/profile</span>
+
+<span class="l-Scalar-Plain">fos_user_register</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@FOSUserBundle/Resources/config/routing/registration.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/register</span>
+
+<span class="l-Scalar-Plain">fos_user_resetting</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@FOSUserBundle/Resources/config/routing/resetting.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/resetting</span>
+
+<span class="l-Scalar-Plain">fos_user_change_password</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">resource</span><span class="p-Indicator">:</span> <span class="s">&quot;@FOSUserBundle/Resources/config/routing/change_password.xml&quot;</span>
+    <span class="l-Scalar-Plain">prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/profile</span>
+</pre></div>
+                                        </td></tr></table></div></div>
+                    </li>
+                    <li><em>XML</em><div class="literal-block notranslate"><div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">&lt;!-- app/config/routing.xml --&gt;</span>
+<span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">&quot;@FOSUserBundle/Resources/config/routing/security.xml&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">&quot;@FOSUserBundle/Resources/config/routing/profile.xml&quot;</span> <span class="na">prefix=</span><span class="s">&quot;/profile&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">&quot;@FOSUserBundle/Resources/config/routing/registration.xml&quot;</span> <span class="na">prefix=</span><span class="s">&quot;/register&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">&quot;@FOSUserBundle/Resources/config/routing/resetting.xml&quot;</span> <span class="na">prefix=</span><span class="s">&quot;/resetting&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">&quot;@FOSUserBundle/Resources/config/routing/change_password.xml&quot;</span> <span class="na">prefix=</span><span class="s">&quot;/profile&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+                                        </td></tr></table></div></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="admonition-wrapper">
+                <div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+                    <p class="last">
+                        Para usar a funcionalidade de email incorporada (confirmação da conta,
+                        redefinição da senha), você deve ativar e configurar o SwiftmailerBundle.
+                    </p>
+                </div></div>
+        </div>
+        <div class="section" id="step-7-update-your-database-schema">
+            <h3>Passo 7: Atualize o esquema da sua base de dados<a class="headerlink" href="#step-7-update-your-database-schema" title="Permalink to this headline">¶</a></h3>
+            <p>
+                Agora que o bundle está configurado, a última coisa que você precisa fazer é
+                atualizar seu esquema de banco de dados porque você adicionou uma nova entidade,
+                a classe <code class="notranslate">User</code> que você criou na Etapa 4.
+            </p>
+            <p>Para ORM executar o seguinte comando.</p>
+            <div class="literal-block notranslate"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>php app/console doctrine:schema:update --force
+</pre></div>
+                            </td></tr></table></div></div>
+            {#<p>For MongoDB users you can run the following command to create the indexes.</p>#}
+            {#<div class="literal-block notranslate"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>php app/console doctrine:mongodb:schema:create --index#}
+            {#</pre></div>#}
+            {#</td></tr></table></div></div>#}
+            {#<p>For Propel 1 users you have to install the <a class="reference external" href="https://github.com/willdurand/TypehintableBehavior">TypehintableBehavior</a>#}
+            {#before to build your model. First, install it:</p>#}
+            {#<div class="literal-block notranslate"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>composer require willdurand/propel-typehintable-behavior#}
+            {#</pre></div>#}
+            {#</td></tr></table></div></div>#}
+            {#<p>You now can run the following command to create the model:</p>#}
+            {#<div class="literal-block notranslate"><div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>php app/console propel:build#}
+            {#</pre></div>#}
+            {#</td></tr></table></div></div>#}
+            {#<div class="admonition-wrapper">#}
+            {#<div class="note"></div><div class="admonition admonition-note"><p class="first admonition-title">Note</p>#}
+            {#<p class="last">To create SQL, run the command <code class="notranslate">propel:build --insert-sql</code> or use migration#}
+            {#commands if you have an existing schema in your database.</p>#}
+            {#</div></div>#}
+            <p>Agora você pode fazer login em <code class="notranslate">http://app.com/app_dev.php/login</code>!</p>
+        </div>
+        <div class="section" id="next-steps">
+            <h3>Proximos Passos<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h3>
+            <p>
+                Agora que você concluiu a instalação básica e a configuração do FOSUserBundle,
+                está pronto para aprender sobre recursos e usos mais avançados do pacote.
+            </p>
+            <p>Estão disponíveis os seguintes documentos:</p>
+            <div class="toctree-wrapper compound">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="overriding_templates.html">Overriding Default FOSUserBundle Templates</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="overriding_controllers.html">Overriding Default FOSUserBundle Controllers</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="overriding_forms.html">Overriding Default FOSUserBundle Forms</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="user_manager.html">About FOSUserBundle User Manager</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="command_line_tools.html">FOSUserBundle Command Line Tools</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="logging_by_username_or_email.html">Logging by Username or Email</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="form_type.html">The username Form Type</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="emails.html">FOSUserBundle Emails</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="groups.html">Using Groups With FOSUserBundle</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="doctrine.html">More about Doctrine implementations</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="overriding_validation.html">Overriding Default FOSUserBundle Validation</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="canonicalizer.html">FOSUserBundle Canonicalization</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="custom_storage_layer.html">Using a custom storage layer</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="configuration_reference.html">FOSUserBundle Configuration Reference</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="adding_invitation_registration.html">FOSUserBundle Invitation</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

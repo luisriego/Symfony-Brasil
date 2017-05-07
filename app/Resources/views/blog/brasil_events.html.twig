@@ -1,0 +1,90 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-2-2" class="blog category case-studies" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+<!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_blog-sidebar.html.twig') }}
+
+                <div id="main" class="col-sm-9">
+                    <h1 class="content_title">
+                        Eventos da comunidade Symfony no Brasil
+                    </h1>
+                    <div class="box-standard event-submit">
+                        <h3>Submit your Symfony event</h3>
+
+                        <div class="add-comment-content">
+                            <a href="{{ path('blog-brasil-events-form') }}" class="btn">
+                                Submit an event
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="event event-unpublished" style="border: 2px dashed #d9d9d9; border-radius: 10px; margin-bottom: 2em; padding: 1.5em;">
+                        <p class="admonition" style="color: #7aba20; font-weight: 700;">Eventos pendentes da ação de um moderador:</p>
+                        {% if noPublicar|length == 0 %}
+                            <p>Não há eventos pendentes.</p>
+                        {% elseif noPublicar|length == 1 %}
+                            <p>Há {{ noPublicar|length }} evento pendente.</p>
+                        {% else %}
+                            <p>Há {{ noPublicar|length }} eventos pendentes.</p>
+                        {% endif %}
+                    </div>
+                    {% for evento in pubicar %}
+                    <div class="event">
+                        <div class="event-content" itemscope itemtype="http://schema.org/Event">
+                            <h2 itemprop="name">
+                                <a
+                                        href="{{ evento.url }}">
+                                    {{ evento.nome }}
+                                </a>
+                                {#{{ evento.texto|truncate(250) }}#}
+                                {#<span itemprop="url" content="https://www.meetup.com/seaphp/events/238913883/"></span>#}
+                            </h2>
+                            <p class="metadata">
+                                {#<span class="flag">#}
+                                    {#<img src="" />#}
+                                {#</span>#}
+                                <span class="location">
+                                    em {{ evento.cidade }}, {{ evento.estado }}, Brasil
+                                    <span itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
+                                        <span itemprop="addressLocality" content="{{ evento.cidade }}, {{ evento.estado }}"></span>
+                                        <span itemprop="addressCountry"  content="BR"></span>
+                                    </span>
+                                </span>
+                                <span class="date">
+                                    de {{ evento.dataInicio|date('d') }} a {{ evento.dataFim|date('d \\d\\e M \\d\\e Y') }}.
+                                </span>
+                                <span itemprop="startDate" content="2017-05-09T18:30:00+00:00"></span>
+                                <span itemprop="endDate" content="2017-05-09T20:30:00+00:00"></span>
+                            </p>
+
+                            <p itemprop="description">
+                                {{ evento.texto|truncate(400) }}
+                            </p>
+
+                            <p class="metadata">
+                                enviado por
+                                <span class="gravatar">
+                                    <a href="{{ evento.author.link }}">
+                                        <img src="{{ asset(upload_directory)~evento.author.avatar }}?format=57x57" alt="{{ evento.author.name }}">
+                                    </a>
+                                </span>
+                                <a href="{{ evento.author.link }}">
+                                    {{ evento.author.name }}
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+        </div>
+    </div>
+{% endblock %}

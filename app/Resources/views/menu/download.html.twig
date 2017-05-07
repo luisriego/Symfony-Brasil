@@ -1,0 +1,304 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/all4-9.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p1" class="download" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                <div id="main" class="col-sm-9">
+                    <div id="download-framework">
+                        <h1 id="titulo-full-stack">Utilizar o framework <br> 'full-stack' de Symfony</h1>
+                        <ul id="nav-version" class="nav nav-tabs">
+                            <li id="version-tab" class="active version-stable">
+                                <h3 data-toggle="tab" data-target="#version-stable">
+                                    Utilize <strong>Symfony 3.2</strong>
+                                    <br>
+                                    últimas funções
+                                    <small>
+                                        <a href="http://symfony.com/roadmap?version=3.0#checker">
+                                            com suporte até
+                                            <span class="date">julio/2016</span>
+                                        </a>
+                                    </small>
+                                </h3>
+                                <div class="mask">&nbsp;</div>
+                            </li>
+                            <li class="version-lts">
+                                <h3 data-toggle="tab" data-target="#version-lts">
+                                    Use <strong>Symfony 2.8</strong>
+                                    <br>
+                                    suporte a longo prazo
+                                    <small>
+                                        <a href="http://symfony.com/roadmap?version=2.8#checker">
+                                            com suporte até
+                                            <span class="date">Nov/2018</span>
+                                        </a>
+                                    </small>
+                                </h3>
+                                <div class="mask">&nbsp;</div>
+                            </li>
+                        </ul>
+
+        <div class="download-content">
+            <div class="installation-help">
+                <p><a href="#" class="installation-help-reveal">
+                    <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                    Primeiro, <em>instale o instlador de symfony</em>. Depois, execute este comando:
+                </a></p>
+                <div class="installation-help-content">
+                    <p>
+                        The <strong>Symfony Installer</strong> is a small PHP application that
+                        must be installed once in your computer. It greatly simplifies
+                        the creation of new projects based on the Symfony framework.
+                    </p>
+
+                    <h5>Installation on Linux and Mac OS X</h5>
+                    <div class="console">
+                        <div class="command">
+                            $ sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony<br>
+                            $ sudo chmod a+x /usr/local/bin/symfony
+                        </div>
+                    </div>
+
+                    <h5>Installation on Windows</h5>
+                    <div class="console">
+                        <div class="command">
+                            c:\&gt; php -r "file_put_contents('symfony', file_get_contents('https://symfony.com/installer'));"
+                        </div>
+                    </div>
+                    <p>
+                        Move the downloaded file to your projects directory and
+                        execute it as <code>php symfony</code>.
+                    </p>
+
+                    <div class="box box-secondary">
+                        <p>
+                            <strong>If you can't use the installer</strong> try instead the
+                            <a href="http://symfony.com/doc/master/book/installation.html#creating-symfony-applications-without-the-installer">Symfony installation based on Composer</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <div id="version-stable" class="console tab-pane fade in active">
+                    <div class="command clearfix">
+                        $ <span class="text-to-copy">symfony new my_project</span>
+                        <button class="hidden-xs btn btn-copy pull-right hidden">
+                            <span class="icon-clipboard"></span>
+                            Copiar
+                        </button>
+                    </div>
+
+                    <div class="third-party-services">
+                        <div class="service">
+                            <img class="icon" src="{{ asset('bundles/app/img/icon-platformsh.png') }}">
+                            <a
+                                class="download-partner"
+                                data-partner="platformsh"
+                                data-type="framework"
+                                href="https://accounts.platform.sh/platform/trial/symfony/setup?branch=3.0">
+                                Deploy com Platform.sh
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="version-lts" class="console tab-pane fade">
+                    <div class="command clearfix">
+                        $ <span class="text-to-copy">symfony new my_project 2.8</span>
+                        <button class="hidden-xs btn btn-copy pull-right hidden">
+                            <span class="icon-clipboard"></span>
+                            Copiar
+                        </button>
+                    </div>
+
+                    <div class="third-party-services">
+                        <div class="service">
+                            <img class="icon" src="{{ asset('bundles/app/img/icon-platformsh.png') }}">
+                            <a class="download-partner" data-partner="platformsh" data-type="framework" href="https://accounts.platform.sh/platform/trial/symfony/setup?branch=2.8">Deploy to Platform.sh</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="download-more">
+        <div class="row">
+            <div id="download-demo-application" class="col-sm-6">
+                <div class="download-more-item">
+                    <img src="{{ asset('bundles/app/img/demoapp.svg') }}">
+                    <h4>Symfony Demo</h4>
+                        <p>
+                            A melhor maneira de aprender codigo Symfony e a referência para
+                            desenvolver aplicações seguindo as melhores práticas oficiais.
+                        </p>
+
+
+                    <div class="row">
+                        <div class="col-sm-6 preferred">
+                            <a href="https://github.com/symfony/symfony-demo">Download</a>
+                        </div>
+                        <div class="col-sm-6 third-party-service">
+                            <img class="icon" src="{{ asset('bundles/app/img/icon-platformsh.png') }}">
+                            <a class="download-partner" data-partner="platformsh" data-type="demo" href="https://accounts.platform.sh/platform/trial/symfony/setup?branch=demo">Deploy com Platform.sh</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="download-more-item">
+                    <img src="{{ asset('bundles/app/img/subscribe.svg') }}">
+                    <h4>Não perca nenhuma atualização!</h4>
+                    <p>
+                        Receba um email quando uma nova versão de Symfony seja
+                        publicada ou quando uma versão esteja prestes a expirar.
+                    </p>
+                    <p>
+                        <a href="{{ path('roadmap') }}">Suscriba gratis</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="download-components">
+        <h2>Como utilizar os <br> componentes de Symfony</h2>
+        <p>
+            O framework de Symfony foi contruido sobre um conjunto de componentes
+            PHP independentes e reusáveis chamado de <a href="http://symfony.com/components">
+            <strong>Componentes de Symfony</strong></a>. Este conjunto esta se tornando
+            a base padrão sobre a qual as melhores aplicações PHP são contruidas. Você
+            pode utiliza-los nas suas aplicações web independente de usar Symfony ou não.
+        </p>
+
+
+        <div class="download-content">
+            <div class="download-content-components">
+                <p>Adicionar Componentes de Symfony à sua aplicação web:</p>
+
+                <div class="console">
+                    <div id="component_selector" class="command">
+                        $ composer require
+                        <select>
+                            <option value="symfony/asset">symfony/asset</option>
+                            <option value="symfony/browser-kit">symfony/browser-kit</option>
+                            <option value="symfony/class-loader">symfony/class-loader</option>
+                            <option value="symfony/config">symfony/config</option>
+                            <option value="symfony/console">symfony/console</option>
+                            <option value="symfony/css-selector">symfony/css-selector</option>
+                            <option value="symfony/debug">symfony/debug</option>
+                            <option value="symfony/dependency-injection">symfony/dependency-injection</option>
+                            <option value="symfony/dom-crawler">symfony/dom-crawler</option>
+                            <option value="symfony/event-dispatcher">symfony/event-dispatcher</option>
+                            <option value="symfony/expression-language">symfony/expression-language</option>
+                            <option value="symfony/filesystem">symfony/filesystem</option>
+                            <option value="symfony/finder">symfony/finder</option>
+                            <option value="symfony/form">symfony/form</option>
+                            <option value="symfony/security-guard">symfony/security-guard</option>
+                            <option value="symfony/http-foundation">symfony/http-foundation</option>
+                            <option value="symfony/http-kernel">symfony/http-kernel</option>
+                            <option value="symfony/icu">symfony/icu</option>
+                            <option value="symfony/intl">symfony/intl</option>
+                            <option value="symfony/ldap">symfony/ldap</option>
+                            <option value="symfony/locale">symfony/locale</option>
+                            <option value="symfony/options-resolver">symfony/options-resolver</option>
+                            <option value="symfony/process">symfony/process</option>
+                            <option value="symfony/property-access">symfony/property-access</option>
+                            <option value="symfony/property-info">symfony/property-info</option>
+                            <option value="symfony/routing">symfony/routing</option>
+                            <option value="symfony/security">symfony/security</option>
+                            <option value="symfony/serializer">symfony/serializer</option>
+                            <option value="symfony/stopwatch">symfony/stopwatch</option>
+                            <option value="symfony/templating">symfony/templating</option>
+                            <option value="symfony/translation">symfony/translation</option>
+                            <option value="symfony/validator">symfony/validator</option>
+                            <option value="symfony/var-dumper">symfony/var-dumper</option>
+                            <option value="symfony/yaml">symfony/yaml</option>
+                        </select>
+                        <button class="hidden-xs btn btn-copy hidden">
+                            <span class="icon-clipboard"></span>
+                            Copiar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="installation-help">
+                    <p>
+                        Você precisa <a href="http://symfony.com/doc/current/cookbook/composer.html">instalar Composer</a>
+                        globalmente no seu sistema.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="download-more">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="download-more-item">
+                    <img src="{{ asset('bundles/app/img/github.svg') }}">
+                    <h4>Symfony Source Code</h4>
+                        Symfony is publicly <a href="https://github.com/symfony/symfony">
+    hosted on GitHub</a>. Join us sending pull requests, reviewing
+    code, or reporting issues.
+
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="download-more-item">
+                    <img src="{{ asset('bundles/app/img/opensource.svg') }}">
+                    <h4>Gratis e Open Source</h4>
+                    O código de Symfony é púlicado sob a <a href="http://symfony.com/doc/current/contributing/code/license.html">licença MIT</a>
+                    ,
+                    que é amigável para desenvolvedores e segura para as empresas.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="download-more">
+        <div class="row">
+            <div id="download-distributions" class="col-sm-6">
+                <div class="download-more-item">
+                    <h4>Baixe as distribuições Symfony</h4>
+                    <a href="http://symfony.com/distributions">Confira nossas distribuições</a>
+                    prontas para aplicações REST e CMS.
+                </div>
+            </div>
+
+            <div id="download-legacy" class="col-sm-6">
+                <div class="download-more-item">
+                    <h4>Baixe versões herdadas</h4>
+                    <a href="http://symfony.com/legacy">Download Symfony 1.x</a>
+                    para suas aplicações e projetos antigos.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

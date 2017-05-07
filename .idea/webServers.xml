@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="acaa0da5-41da-4024-a81f-9678f12d6168" name="Remoto" url="http://ftp.symfonybrasil.com">
+        <fileTransfer host="ftp.symfonybrasil.com" port="2222" rootFolder="/home/imove791" accessType="SFTP" password="dff9dfcbdfc4dfdedfc3dfcbdfcddfc5dfeadf98df9adf9adf9d" username="imove791">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

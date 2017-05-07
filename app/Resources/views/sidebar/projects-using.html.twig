@@ -1,0 +1,1965 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-3-1" class="projects">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li><a href="{{ path('que-e-symfony') }}">O que é Symfony</a></li>
+                        <li class="active">Projetos que utilizam Symfony</li>
+                    </ol>
+
+                    <h1 class="content_title">Projetos que utilizam Symfony</h1>
+
+                    <div id="projects-intro">
+                        <p>
+                            Symfony não é só um framework popular usado por muitas corporações grandes e pequenas, mais
+                            também a melhor plataforma para construir projetos open source. Muitos dos projetos PHP atuáis
+                            estão constridos com algum dos nossos componentes ou utilizam o framework en sua totalidade.
+                            Compartilhar é um dos nossos valores fundamentais e nós gostamos de pensar que esses projetos
+                            são parte da família Symfony
+                        </p>
+
+                    </div>
+
+
+                    <div id="project-highlighted-listing">
+
+
+                        <div class="box-secondary project">
+                            <div class="row">
+                                <div class="col-sm-8 project-description">
+                                    <h2><a href="http://symfony.com/projects/drupal">
+                                            Drupal
+                                        </a>
+                                    </h2>
+                                    <p>
+                                        Drupal é uma plataforma de gerenciamento de conteúdo de código aberto que alimenta
+                                        milhões de websites e aplicações. Ele é construído, usado, e apoiado por uma
+                                        comunidade ativa e diversificada de pessoas em todo o mundo. Drupal é um software
+                                        de código aberto mantido e desenvolvido por uma comunidade de 1.000.000 usuários
+                                        e desenvolvedores. É distribuído sob os termos da GNU General Public License
+                                        (ou "GPL"), o que significa que qualquer um é livre para baixá-lo e compartilhá-lo
+                                        com os outros.
+                                    </p>
+                                </div>
+
+                                <div class="col-sm-4 project-logo">
+                                    <img src="{{ asset('bundles/app/img/drupal-logo.png') }}" class="project-logo" width="160" height="160">
+                                </div>
+
+                                <div class="col-sm-12 project-dependencies">
+                                    <h3>Componentes usados por Drupal</h3>
+                                    <ul class="project-components">
+                                        <li class="project-component">
+                                            <a href="http://www.drupal.org.br/">
+                                                ClassLoader
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Console">
+                                                Console
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/CssSelector">
+                                                CssSelector
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/DependencyInjection">
+                                                DependencyInjection
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/EventDispatcher">
+                                                EventDispatcher
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/HttpFoundation">
+                                                HttpFoundation
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/HttpKernel">
+                                                HttpKernel
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Process">
+                                                Process
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Routing">
+                                                Routing
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Serializer">
+                                                Serializer
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Translation">
+                                                Translation
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Validator">
+                                                Validator
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Yaml">
+                                                Yaml
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-secondary project">
+                            <div class="row">
+                                <div class="col-sm-8 project-description">
+                                    <h2><a href="https://www.phpbb.com/">
+                                            phpBB
+                                        </a>
+                                    </h2>
+                                    <p>
+                                        phpBB é uma solução de software BBS-forum plana livre que pode ser usado para
+                                        manter contato com um grupo de pessoas ou pode alimentar todo o seu site. Com uma
+                                        extensa base de dados de modificações e estilos criados pelos usuários contendo
+                                        centenas de pacotes de estilo e imagem para personalizar a sua interface, você
+                                        pode criar um fórum muito original em minutos.
+                                    </p>
+                                </div>
+                                <div class="col-sm-4 project-logo">
+                                    <img src="{{ asset('bundles/app/img/phpbb.png') }}" class="project-logo" width="160" height="160">
+                                </div>
+
+                                <div class="col-sm-12 project-dependencies">
+                                    <h3>Componentes usados por phpBB</h3>
+                                    <ul class="project-components">
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/BrowserKit">
+                                                BrowserKit
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Config">
+                                                Config
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Console">
+                                                Console
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/CssSelector">
+                                                CssSelector
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Debug">
+                                                Debug
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/DependencyInjection">
+                                                DependencyInjection
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/DomCrawler">
+                                                DomCrawler
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/EventDispatcher">
+                                                EventDispatcher
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Filesystem">
+                                                Filesystem
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Finder">
+                                                Finder
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/HttpFoundation">
+                                                HttpFoundation
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/HttpKernel">
+                                                HttpKernel
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Process">
+                                                Process
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Routing">
+                                                Routing
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Yaml">
+                                                Yaml
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <div class="row">
+                                <div class="col-sm-8 project-description">
+                                    <h2><a href="https://laravel.com/">
+                                            Laravel
+                                        </a></h2>
+
+                                    <p>
+                                        Laravel é um framework de aplicações web com expressiva e elegante sintaxe.
+                                        Acreditamos que o desenvolvimento deve ser uma experiência agradável e criativa
+                                        para ser verdadeiramente gratificante. Laravel tenta tirar as tarefas chatas  do
+                                        desenvolvimento, facilitando tarefas comuns usados na maioria dos projetos web,
+                                        como autenticação, roteamento, sessões, e cache.
+                                    </p>
+
+                                </div>
+
+                                <div class="col-sm-4 project-logo">
+                                    <img src="{{ asset('bundles/app/img/laravel.png') }}" class="project-logo" width="160" height="160">
+                                </div>
+
+                                <div class="col-sm-12 project-dependencies">
+                                    <h3>Componentes usados por Laravel</h3>
+                                    <ul class="project-components">
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/BrowserKit">
+                                                BrowserKit
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Console">
+                                                Console
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/CssSelector">
+                                                CssSelector
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Debug">
+                                                Debug
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/DomCrawler">
+                                                DomCrawler
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/EventDispatcher">
+                                                EventDispatcher
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Filesystem">
+                                                Filesystem
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Finder">
+                                                Finder
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/HttpFoundation">
+                                                HttpFoundation
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/HttpKernel">
+                                                HttpKernel
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Process">
+                                                Process
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/PropertyAccess">
+                                                PropertyAccess
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Routing">
+                                                Routing
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Translation">
+                                                Translation
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-secondary project">
+                            <div class="row">
+                                <div class="col-sm-8 project-description">
+                                    <h2><a href="http://symfony.com/projects/symfonyfs">
+                                            Symfony Full Stack
+                                        </a></h2>
+
+                                    <p>
+                                        Symfony é um framework PHP de código aberto para desenvolvimento web.
+                                        Foi concebido orinálmente pela agência interativa Sensiolab para o
+                                        desenvolvimento de sites web para os seus clientes. Symfony foi publicado
+                                        pela agência em 2005 sob a licência de código aberto MIT e hoje está entre
+                                        as principais estruturas disponíveis para o desenvolvimento PHP.
+                                    </p>
+
+                                </div>
+
+                                <div class="col-sm-4 project-logo">
+                                    <img src="{{ asset('bundles/app/img/symfonyfs.png') }}" class="project-logo" width="160" height="160">
+                                </div>
+
+                                <div class="col-sm-12 project-dependencies">
+                                    <h3>Componentes usados por Symfony Full Stack</h3>
+                                    <ul class="project-components">
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/BrowserKit">
+                                                BrowserKit
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/ClassLoader">
+                                                ClassLoader
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Config">
+                                                Config
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Console">
+                                                Console
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/CssSelector">
+                                                CssSelector
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Debug">
+                                                Debug
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/DependencyInjection">
+                                                DependencyInjection
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/DomCrawler">
+                                                DomCrawler
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/EventDispatcher">
+                                                EventDispatcher
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Filesystem">
+                                                Filesystem
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Finder">
+                                                Finder
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Form">
+                                                Form
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/HttpFoundation">
+                                                HttpFoundation
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/HttpKernel">
+                                                HttpKernel
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Icu">
+                                                Icu
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Intl">
+                                                Intl
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Locale">
+                                                Locale
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/OptionsResolver">
+                                                OptionsResolver
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Process">
+                                                Process
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/PropertyAccess">
+                                                PropertyAccess
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Routing">
+                                                Routing
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Security">
+                                                Security
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Serializer">
+                                                Serializer
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Stopwatch">
+                                                Stopwatch
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Templating">
+                                                Templating
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Translation">
+                                                Translation
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Validator">
+                                                Validator
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Yaml">
+                                                Yaml
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-secondary project">
+                            <div class="row">
+                                <div class="col-sm-8 project-description">
+                                    <h2><a href="http://ez.no/pt">
+                                            eZ Publish Community
+                                        </a></h2>
+                                    <p>
+                                        O projeto da comunidade eZ Publish serve como base para a Edição Empresarial
+                                        da eZ Publish, que é construida para aplicações digitáis em negócios nos que
+                                        a qualidade da segurança e a estabilidade são críticos, além do mais tem funcionalidades
+                                        adicionais cheias de recursos, suporte e serviços de manutenção.
+                                    </p>
+
+                                </div>
+
+                                <div class="col-sm-4 project-logo">
+                                    <img src="{{ asset('bundles/app/img/ezpublish.png') }}" class="project-logo" width="160" height="160">
+                                </div>
+
+                                <div class="col-sm-12 project-dependencies">
+                                    <p class="project-dependency">
+                                        Este projeto usa
+                                        <a href="http://symfony.com/projects/symfonyfs">Symfony Full Stack</a>.
+                                    </p>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <div class="row">
+                                <div class="col-sm-8 project-description">
+                                    <h2><a href="https://www.joomla.org/">
+                                            Joomla!
+                                        </a>
+                                    </h2>
+                                    <p>
+                                        Joomla é um sistema de gerenciamento de conteúdo (CMS) premiado, que lhe
+                                        permite construir sites e poderosas aplicações online. Muitos aspectos,
+                                        incluindo a sua facilidade de uso e extensibilidade, fizeram de Joomla o
+                                        software para construir sites mais popular. O melhor de tudo, Joomla é
+                                        uma solução de código aberto que está disponível gratuitamente para todos.
+                                    </p>
+                                </div>
+
+                                <div class="col-sm-4 project-logo">
+                                    <img src="{{ asset('bundles/app/img/joomla.png') }}" class="project-logo" width="160" height="160">
+                                </div>
+                                <div class="col-sm-12 project-dependencies">
+                                    <h3>Componentes usado por Joomla!</h3>
+                                    <ul class="project-components">
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Yaml">
+                                                Yaml
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <div class="row">
+                                <div class="col-sm-8 project-description">
+                                    <h2><a href="http://symfony.com/projects/composer">
+                                            Composer
+                                        </a></h2>
+                                    <p>
+                                        Composer é uma ferramenta para o gerenciamento de dependências em PHP.
+                                        Ele permite que você declare as bibliotecas dependentes que o seu
+                                        projeto precisa e que irá instalá-los em seu projeto para você.
+                                    </p>
+                                </div>
+                                <div class="col-sm-4 project-logo">
+                                    <img src="{{ asset('bundles/app/img/composer.png') }}" class="project-logo" width="160" height="160">
+                                </div>
+                                <div class="col-sm-12 project-dependencies">
+                                    <h3>Componentes usados por Composer</h3>
+                                    <ul class="project-components">
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Console">
+                                                Console
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Finder">
+                                                Finder
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Process">
+                                                Process
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-secondary project">
+                            <div class="row">
+                                <div class="col-sm-8 project-description">
+                                    <h2>
+                                        <a href="http://symfony.com/projects/magento">
+                                            Magento
+                                        </a>
+                                    </h2>
+                                    <p>
+                                        Magento oferece soluções de comércio eletrônico flexível, escalável
+                                        projetado para ajudá-lo a crescer e ter sucesso online. Nossa plataforma
+                                        de tecnologia de baixo custo torna possível para que você possa controlar
+                                        o conteúdo, funcionalidade e aparência de sua loja online.
+                                    </p>
+                                </div>
+                                <div class="col-sm-4 project-logo">
+                                    <img src="{{ asset('bundles/app/img/magento.png') }}" class="project-logo" width="160" height="160">
+                                </div>
+                                <div class="col-sm-12 project-dependencies">
+                                    <h3>Componentes usados por Magento</h3>
+                                    <ul class="project-components">
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Console">
+                                                Console
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/EventDispatcher">
+                                                EventDispatcher
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-secondary project">
+                            <div class="row">
+                                <div class="col-sm-8 project-description">
+                                    <h2>
+                                        <a href="http://symfony.com/projects/piwik">
+                                            Piwik
+                                        </a>
+                                    </h2>
+                                    <p>
+                                        Piwik é uma plataforma open source para web analytics líder que lhe dá
+                                        informações valiosas sobre os visitantes do seu site, suas campanhas
+                                        de marketing e muito mais, para que possa optimizar a sua estratégia
+                                        on-line e experiência de seus usuários.
+                                    </p>
+                                </div>
+                                <div class="col-sm-4 project-logo">
+                                    <img src="{{ asset('bundles/app/img/piwik.png') }}" class="project-logo" width="160" height="160">
+                                </div>
+                                <div class="col-sm-12 project-dependencies">
+                                    <h3>Componentes usados por Piwik</h3>
+                                    <ul class="project-components">
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Console">
+                                                Console
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/EventDispatcher">
+                                                EventDispatcher
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/VarDumper">
+                                                VarDumper
+                                            </a>
+                                        </li>
+                                        <li class="project-component">
+                                            <a href="http://symfony.com/components/Yaml">
+                                                Yaml
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="project-major-listing" class="row">
+                        <div class="box-secondary project">
+                            <h2>
+                                <a href="http://symfony.com/projects/silex">
+                                    Silex
+                                </a>
+                            </h2>
+                            <p>
+                                Silex é um microframework PHP para PHP 5.3. Ele é construído sobre os
+                                ombros do Symfony e Pimple e também inspirada por Sinatra. Um quadro
+                                micro fornece a coragem para a construção de aplicativos simples de arquivo
+                                único. Silex pretende ser: conciso (ele expõe uma API intuitiva
+                                e concisa que é divertida de usar), extensível (ele tem um sistema de
+                                extensão baseado em torno do Pimple micro serviço de recipiente que
+                                torna ainda mais fácil para amarrar em bibliotecas de terceiros) e
+                                testável (ele usa Symfony HttpKernel, que abstrai de solicitação e
+                                resposta e simplifica os testes app).
+                            </p>
+                            <div class="project-dependencies">
+                                <h3>Componentes usados por este projeto</h3>
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/BrowserKit">
+                                            BrowserKit
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Config">
+                                            Config
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/CssSelector">
+                                            CssSelector
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Debug">
+                                            Debug
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/DomCrawler">
+                                            DomCrawler
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/EventDispatcher">
+                                            EventDispatcher
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Finder">
+                                            Finder
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Form">
+                                            Form
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/HttpFoundation">
+                                            HttpFoundation
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/HttpKernel">
+                                            HttpKernel
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Locale">
+                                            Locale
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/OptionsResolver">
+                                            OptionsResolver
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Process">
+                                            Process
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Routing">
+                                            Routing
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Security">
+                                            Security
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Serializer">
+                                            Serializer
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Validator">
+                                            Validator
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="box-secondary project">
+                            <h2>
+                                <a href="http://symfony.com/projects/assetic">
+                                    Assetic
+                                </a>
+                            </h2>
+                            <p>
+
+                                Assetic is an asset management framework for PHP. It combines two
+                                major ideas: assets and filters. The assets are files such as CSS,
+                                JavaScript and image files. The filters are things that can be applied
+                                to these files before they are served to the browser. This allows a
+                                separation between the asset files stored in the application and the
+                                files actually presented to the user.
+                            </p>
+                            <div class="project-dependencies">
+
+
+                                <h3>Components used by this project</h3>
+
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Process">
+                                            Process
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/goutte">
+                                    Goutte
+                                </a></h2>
+
+                            <p>
+
+                                Goutte is a screen scraping and web crawling library for PHP. Goutte
+                                provides a nice API to crawl websites and extract data from the HTML/XML
+                                responses.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+
+
+                                <h3>Components used by this project</h3>
+
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/BrowserKit">
+                                            BrowserKit
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/CssSelector">
+                                            CssSelector
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/DomCrawler">
+                                            DomCrawler
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Finder">
+                                            Finder
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Process">
+                                            Process
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/sami">
+                                    Sami
+                                </a></h2>
+
+                            <p>
+
+                                Sami is an API documentation generator. It uses a PHP file for
+                                configuration to give a very flexible way of tweaking the API
+                                generation, Twig for templating and a dependency injection container
+                                (Pimple) to let you override any internal class. It only works with
+                                PHP 5.3 (but it can generate documentation for PHP 5.2 projects). It
+                                uses the excellent PHP Parser project for PHP code parsing. You can
+                                also manage versions of your code to generate documentation for all of
+                                them in a single tree (without the overhead of re-parsing everything
+                                for each version of course).
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+
+
+                                <h3>Components used by this project</h3>
+
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Console">
+                                            Console
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Filesystem">
+                                            Filesystem
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Finder">
+                                            Finder
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Process">
+                                            Process
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Yaml">
+                                            Yaml
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/sismo">
+                                    Sismo
+                                </a></h2>
+
+                            <p>
+
+                                Sismo is a Continuous Testing Server written in PHP. Sismo does not try
+                                to do more than getting your code, running your tests, and send you
+                                notifications. Sismo is language and tool agnostic. Just give it a
+                                command that knows how to run your tests and returns a non-zero exit
+                                code when tests do not pass. Sounds good? There is more. Sismo is
+                                insanely easy to install (there is only one PHP file to download), easy
+                                to configure, and it comes with a gorgeous web interface.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+
+
+                                <h3>Components used by this project</h3>
+
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/BrowserKit">
+                                            BrowserKit
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/ClassLoader">
+                                            ClassLoader
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Console">
+                                            Console
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/CssSelector">
+                                            CssSelector
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/DomCrawler">
+                                            DomCrawler
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Filesystem">
+                                            Filesystem
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Finder">
+                                            Finder
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Process">
+                                            Process
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/phpunit">
+                                    PHPUnit
+                                </a></h2>
+
+                            <p>
+
+                                PHPUnit is a unit testing software framework for software written in
+                                the PHP programming language. Created by Sebastian Bergmann, PHPUnit
+                                is one of the xUnit family of frameworks. PHPUnit was created with the
+                                view that the sooner you detect your code mistakes, the quicker you
+                                can fix them. Like all Unit testing frameworks PHPUnit uses assertions
+                                to verify that behaviour of the unit of code under test behaves as
+                                expected.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+
+
+                                <h3>Components used by this project</h3>
+
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Yaml">
+                                            Yaml
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/orocrm">
+                                    OroCRM
+                                </a></h2>
+
+                            <p>
+
+                                OroCRM is an easy-to-use, open source CRM with built-in marketing
+                                tools for your ecommerce business. It's the CRM both marketing and
+                                sales can agree on! OroCRM was created with marketers in mind. It's
+                                marketing automation tools for commerce companies make it easy to
+                                track and segment customers across multiple channels.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+                                <p class="project-dependency">
+                                    This project is using
+                                    <a href="http://symfony.com/projects/symfonyfs">Symfony Full Stack</a>.
+                                </p>
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/oroplatform">
+                                    OroPlatform
+                                </a></h2>
+
+                            <p>
+
+                                The OroPlatform is an Open source Business Application Platform (BAP).
+                                It offers developers the exact business application platform they've
+                                been looking for, by combining the tools they need. Built in PHP5 and
+                                the Symfony framework, it seamlessly integrates into OroCRM or works
+                                entirely standalone. Developing custom business applications has never
+                                been so easy.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+                                <p class="project-dependency">
+                                    This project is using
+                                    <a href="http://symfony.com/projects/symfonyfs">Symfony Full Stack</a>.
+                                </p>
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/doctrine">
+                                    Doctrine
+                                </a></h2>
+
+                            <p>
+
+                                Object relational mapper (ORM) for PHP that sits on top of a powerful
+                                database abstraction layer (DBAL). One of its key features is the
+                                option to write database queries in a proprietary object oriented SQL
+                                dialect called Doctrine Query Language (DQL), inspired by Hibernates
+                                HQL. This provides developers with a powerful alternative to SQL that
+                                maintains flexibility without requiring unnecessary code duplication.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+
+
+                                <h3>Components used by this project</h3>
+
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Console">
+                                            Console
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Yaml">
+                                            Yaml
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/behat">
+                                    Behat
+                                </a></h2>
+
+                            <p>
+
+                                Behat is an open source behavior-driven development framework for PHP
+                                5.3 and 5.4. What is behavior-driven development, you ask? It's the
+                                idea that you start by writing human-readable sentences that describe
+                                a feature of your application and how it should work, and only then
+                                implement this behavior in software.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+
+
+                                <h3>Components used by this project</h3>
+
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/ClassLoader">
+                                            ClassLoader
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Config">
+                                            Config
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Console">
+                                            Console
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/DependencyInjection">
+                                            DependencyInjection
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/EventDispatcher">
+                                            EventDispatcher
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Finder">
+                                            Finder
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Translation">
+                                            Translation
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Yaml">
+                                            Yaml
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/sylius">
+                                    Sylius
+                                </a></h2>
+
+                            <p>
+
+                                Sylius is an open source e-commerce solution for PHP, based on the
+                                Symfony framework. Ultimate goal of the project is to create a webshop
+                                engine, which is user-friendly, loved by developers and has a helpful
+                                community. Sylius is constructed from fully decoupled components
+                                (bundles in Symfony glossary), which means that every feature
+                                (products catalog, shipping engine, promotions system...) can be used
+                                in any other application.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+                                <p class="project-dependency">
+                                    This project is using
+                                    <a href="http://symfony.com/projects/symfonyfs">Symfony Full Stack</a>.
+                                </p>
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/sonataproject">
+                                    Sonata Project
+                                </a></h2>
+
+                            <p>
+
+                                The goal of the Sonata Project is to provide an e-commerce framework
+                                solution based on the Symfony framework. Think of it as a toolkit based
+                                on Symfony components to make building e-commerce sites easy and fun!
+                                Famous bundles are already available: Admin Bundle, Block Bundle, Media
+                                Bundle, ... and used by others projects like the Symfony CMF.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+                                <p class="project-dependency">
+                                    This project is using
+                                    <a href="http://symfony.com/projects/symfonyfs">Symfony Full Stack</a>.
+                                </p>
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/zikula">
+                                    Zikula
+                                </a></h2>
+
+                            <p>
+
+                                Zikula is a Web Application Toolkit, which allows you to run
+                                impressive websites and build powerful online applications. Zikula has
+                                received praise for many things, but we believe the highlights are ease
+                                of use, quick and easy development, security and performance and
+                                lastly flexibility.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+                                <p class="project-dependency">
+                                    This project is using
+                                    <a href="http://symfony.com/projects/symfonyfs">Symfony Full Stack</a>.
+                                </p>
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/symfonycmf">
+                                    Symfony CMF
+                                </a></h2>
+
+                            <p>
+
+                                The Symfony CMF project makes it easier for developers to add CMS
+                                functionality to applications built with the Symfony PHP framework.
+                                Key development principles for the provided set of bundles are
+                                scalability, usability, documentation and testing.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+                                <p class="project-dependency">
+                                    This project is using
+                                    <a href="http://symfony.com/projects/symfonyfs">Symfony Full Stack</a>.
+                                </p>
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/akeneo">
+                                    Akeneo PIM
+                                </a></h2>
+
+                            <p>
+
+                                Akeneo is an open source Product Information Management (PIM) system
+                                designed for retailers looking for efficient answers to their
+                                multichannel needs.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+                                <p class="project-dependency">
+                                    This project is using
+                                    <a href="http://symfony.com/projects/symfonyfs">Symfony Full Stack</a>.
+                                </p>
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/shopware">
+                                    Shopware
+                                </a></h2>
+
+                            <p>
+
+                                Shopware is a complete eCommerce solution, combining a full range of
+                                functionality with a masterfully crafted simplistic design suitable
+                                for novice and expert alike.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+
+
+                                <h3>Components used by this project</h3>
+
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Config">
+                                            Config
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Console">
+                                            Console
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/DependencyInjection">
+                                            DependencyInjection
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Filesystem">
+                                            Filesystem
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Finder">
+                                            Finder
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/HttpFoundation">
+                                            HttpFoundation
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/HttpKernel">
+                                            HttpKernel
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Routing">
+                                            Routing
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Validator">
+                                            Validator
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Yaml">
+                                            Yaml
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/propel">
+                                    Propel
+                                </a></h2>
+
+                            <p>
+
+                                Propel is an open-source Object-Relational Mapping (ORM) for SQL-
+                                Databases in PHP 5.4. It allows you to access your database using a
+                                set of objects, providing a simple API for storing and retrieving
+                                data. But not only plain ORM but it also provides database schema
+                                migration, reverse engineering of existing database and much more.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+
+
+                                <h3>Components used by this project</h3>
+
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Console">
+                                            Console
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Filesystem">
+                                            Filesystem
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Finder">
+                                            Finder
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Validator">
+                                            Validator
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Yaml">
+                                            Yaml
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/mautic">
+                                    Mautic
+                                </a></h2>
+
+                            <p>
+
+                                Mautic revolutionizes marketing automation. Mautic is an open source
+                                software tool available to every business regardless of their size
+                                and economic standing. Mautic provides lead nurturing, lead monitoring,
+                                automated email marketing campaigns, social media integrations,
+                                landing pages, assets, reports, calendar, events, analytics, forms
+                                and more. Mautic makes marketing automation possible for everyone.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+
+
+                                <h3>Components used by this project</h3>
+
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/ClassLoader">
+                                            ClassLoader
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Config">
+                                            Config
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Console">
+                                            Console
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Debug">
+                                            Debug
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/DependencyInjection">
+                                            DependencyInjection
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/EventDispatcher">
+                                            EventDispatcher
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Finder">
+                                            Finder
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Form">
+                                            Form
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/HttpFoundation">
+                                            HttpFoundation
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/HttpKernel">
+                                            HttpKernel
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Intl">
+                                            Intl
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/OptionsResolver">
+                                            OptionsResolver
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Process">
+                                            Process
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Routing">
+                                            Routing
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Security">
+                                            Security
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Templating">
+                                            Templating
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Translation">
+                                            Translation
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Validator">
+                                            Validator
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Yaml">
+                                            Yaml
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/freepost">
+                                    freepost
+                                </a></h2>
+
+                            <p>
+
+                                freepost is a free message board mainly used to discuss free-software
+                                and free-culture related topics.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+                                <p class="project-dependency">
+                                    This project is using
+                                    <a href="http://symfony.com/projects/symfonyfs">Symfony Full Stack</a>.
+                                </p>
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="box-secondary project">
+                            <h2><a href="http://symfony.com/projects/codeception">
+                                    Codeception
+                                </a></h2>
+
+                            <p>
+
+                                Codeception is a full-stack testing framework which incorporates
+                                acceptance, functional, and unit testing. It uses a simple PHP DSL to
+                                describe test scenarios and includes over 20 modules to solve common
+                                problems. With Codeception you can get tests executed inside every
+                                popular PHP framework, use PhpBrowser (based on Guzzle), or run
+                                acceptance tests with Selenium WebDriver.
+
+                            </p>
+
+
+                            <div class="project-dependencies">
+
+
+                                <h3>Components used by this project</h3>
+
+                                <ul class="project-components">
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/BrowserKit">
+                                            BrowserKit
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Console">
+                                            Console
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/CssSelector">
+                                            CssSelector
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/DomCrawler">
+                                            DomCrawler
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/EventDispatcher">
+                                            EventDispatcher
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Finder">
+                                            Finder
+                                        </a>
+                                    </li>
+                                    <li class="project-component">
+                                        <a href="http://symfony.com/components/Yaml">
+                                            Yaml
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div id="project-minor-listing">
+                        <h2>Other projects</h2>
+                        <ul>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/thelia">
+                                    Thelia
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/kunstmaanbundles">
+                                    Kunstmaan Bundles
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/sculpin">
+                                    Sculpin
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/flow">
+                                    Flow
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/phpspec">
+                                    phpspec
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/phpdocumentor">
+                                    phpDocumentor
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/guzzle">
+                                    Guzzle
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/bolt">
+                                    Bolt
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/pagekit">
+                                    Pagekit
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/vespolina">
+                                    Vespolina
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/easybook">
+                                    Easybook
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/forkcms">
+                                    Fork CMS
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/phpmyfaq">
+                                    phpMyFAQ
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/ppi">
+                                    PPI Framework
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/proem">
+                                    Proem Framework
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/sulu">
+                                    Sulu
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/initcms">
+                                    init CMS
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/carew">
+                                    Carew
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/redkitecms">
+                                    RedKite CMS
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/ladybug">
+                                    Ladybug
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/phinx">
+                                    Phinx
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/elcodi">
+                                    Elcodi
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/spress">
+                                    Spress
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/phpredexpert">
+                                    phpRedExpert
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/roadiz">
+                                    Roadiz
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/mothership">
+                                    Mothership
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/backbee">
+                                    BackBee
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/concrete5">
+                                    concrete5
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/sonataecommerce">
+                                    Sonata e-commerce
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/drupalconsole">
+                                    Drupal Console
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/grav">
+                                    Grav
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/wellcommerce">
+                                    WellCommerce
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/contao">
+                                    Contao
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/aimeos">
+                                    Aimeos e-commerce components
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/pdepend">
+                                    PHP Depend
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="http://symfony.com/projects/bowerphp">
+                                    bowerphp
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

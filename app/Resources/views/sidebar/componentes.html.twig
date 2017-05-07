@@ -1,0 +1,585 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-12" class="components" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+
+                    <h1 class="content_title">Componentes de Symfony</h1>
+
+                    <p>
+                        Os Componentes de Symfony são um conjunto de bibliotecas PHP independentes
+                        e reutilizáveis. Eles estão se tornando o standard sobre o que as melhores
+                        aplicações PHP são construídas. Você pode usar qualquer um desses componentes
+                        em seus próprios projectos web independentemente da utilização do Framework
+                        de  Symfony.
+                    </p>
+
+
+                    <h2>Instalação</h2>
+
+                    <p>
+                        Utilize <a href="https://symfony.com/doc/master/cookbook/composer.html">Composer</a>
+                        para instalar os componetes de Symfony no seu projeto PHP:
+                    </p>
+
+
+                    <div class="console">
+                        <div id="component_selector" class="command">
+                            $ composer require <select>
+                                <option value="symfony/asset">symfony/asset</option>
+                                <option value="symfony/browser-kit">symfony/browser-kit</option>
+                                <option value="symfony/class-loader">symfony/class-loader</option>
+                                <option value="symfony/config">symfony/config</option>
+                                <option value="symfony/console">symfony/console</option>
+                                <option value="symfony/css-selector">symfony/css-selector</option>
+                                <option value="symfony/debug">symfony/debug</option>
+                                <option value="symfony/dependency-injection">symfony/dependency-injection</option>
+                                <option value="symfony/dom-crawler">symfony/dom-crawler</option>
+                                <option value="symfony/event-dispatcher">symfony/event-dispatcher</option>
+                                <option value="symfony/expression-language">symfony/expression-language</option>
+                                <option value="symfony/filesystem">symfony/filesystem</option>
+                                <option value="symfony/finder">symfony/finder</option>
+                                <option value="symfony/form">symfony/form</option>
+                                <option value="symfony/security-guard">symfony/security-guard</option>
+                                <option value="symfony/http-foundation">symfony/http-foundation</option>
+                                <option value="symfony/http-kernel">symfony/http-kernel</option>
+                                <option value="symfony/icu">symfony/icu</option>
+                                <option value="symfony/intl">symfony/intl</option>
+                                <option value="symfony/ldap">symfony/ldap</option>
+                                <option value="symfony/locale">symfony/locale</option>
+                                <option value="symfony/options-resolver">symfony/options-resolver</option>
+                                <option value="symfony/process">symfony/process</option>
+                                <option value="symfony/property-access">symfony/property-access</option>
+                                <option value="symfony/property-info">symfony/property-info</option>
+                                <option value="symfony/routing">symfony/routing</option>
+                                <option value="symfony/security">symfony/security</option>
+                                <option value="symfony/serializer">symfony/serializer</option>
+                                <option value="symfony/stopwatch">symfony/stopwatch</option>
+                                <option value="symfony/templating">symfony/templating</option>
+                                <option value="symfony/translation">symfony/translation</option>
+                                <option value="symfony/validator">symfony/validator</option>
+                                <option value="symfony/var-dumper">symfony/var-dumper</option>
+                                <option value="symfony/yaml">symfony/yaml</option>
+                            </select>
+
+                            <button class="hidden-xs btn btn-copy hidden">
+                                <span class="fa-upload"></span>
+                                Copiar
+                            </button>
+                        </div>
+                    </div>
+
+                    <h2>Listagem dos Component</h2>
+
+
+                    <table class="components-list">
+                        <thead>
+                        <tr>
+                            <th>Componente</th>
+                            <th>Descrição</th>
+                            <th>Código</th>
+                            <th>Documentação</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Asset">Asset</a>
+                            </td>
+                            <td>
+                                Manages URL generation and versioning of web assets such as CSS stylesheets, JavaScript files and image files.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/asset">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/asset/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/BrowserKit">BrowserKit</a>
+                            </td>
+                            <td>
+                                Simulates the behavior of a web browser.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/browser-kit">Code</a>
+                            </td>
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/ClassLoader">ClassLoader</a>
+                            </td>
+                            <td>
+                                Carrega automaticamente as classes dos teus projetos desde que sigam algumas convenções standards de PHP.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/class-loader">Code</a>
+                            </td>
+                            <td>
+                                <a
+                                        href="http://andreiabohner.org/symfony2docs/2.8/components/class_loader.html"
+                                        rel="nofollow"
+                                        target="_blank"
+                                        >Documentação (em português)</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Config">Config</a>
+                            </td>
+                            <td>
+                                Helps you find, load, combine, autofill and validate configuration values.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/config">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/config/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Console">Console</a>
+                            </td>
+                            <td>
+                                Eases the creation of beautiful and testable command line interfaces.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/console">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/console/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/CssSelector">CssSelector</a>
+                            </td>
+                            <td>
+                                Converts CSS selectors to XPath expressions.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/css-selector">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/css_selector.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Debug">Debug</a>
+                            </td>
+                            <td>
+                                Provides tools to ease debugging PHP code.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/debug">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/debug/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/DependencyInjection">DependencyInjection</a>
+                            </td>
+                            <td>
+                                Allows you to standardize and centralize the way objects are constructed in your application.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/dependency-injection">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/dependency_injection/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/DomCrawler">DomCrawler</a>
+                            </td>
+                            <td>
+                                Eases DOM navigation for HTML and XML documents.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/dom-crawler">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/dom_crawler.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/EventDispatcher">EventDispatcher</a>
+                            </td>
+                            <td>
+                                Implements the Mediator pattern in a simple and effective way to make projects truly extensible.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/event-dispatcher">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/event_dispatcher/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/ExpressionLanguage">ExpressionLanguage</a>
+                            </td>
+                            <td>
+                                Provides an engine that can compile and evaluate expressions.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/expression-language">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/expression_language/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Filesystem">Filesystem</a>
+                            </td>
+                            <td>
+                                Provides basic utilities for the filesystem.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/filesystem">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/filesystem/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Finder">Finder</a>
+                            </td>
+                            <td>
+                                Finds files and directories via an intuitive fluent interface.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/finder">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/finder.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Form">Form</a>
+                            </td>
+                            <td>
+                                Provides tools to easy creating, processing and reusing HTML forms.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/form">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/form/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Guard">Guard</a>
+                            </td>
+                            <td>
+                                Brings many layers of authentication together, making it much easier to create complex authentication systems where you have total control.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/security-guard">Code</a>
+                            </td>
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/HttpFoundation">HttpFoundation</a>
+                            </td>
+                            <td>
+                                Defines an object-oriented layer for the HTTP specification.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/http-foundation">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/http_foundation/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/HttpKernel">HttpKernel</a>
+                            </td>
+                            <td>
+                                Provides the building blocks to create flexible and fast HTTP-based frameworks.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/http-kernel">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/http_kernel/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Icu">Icu</a>
+                            </td>
+                            <td>
+                                Contains the data of the ICU library in a specific version. This component is deprecated since October 2014, use the Intl component instead.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/icu">Code</a>
+                            </td>
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Intl">Intl</a>
+                            </td>
+                            <td>
+                                Provides fallback code to handle cases when the intl extension is missing.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/intl">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/intl.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Ldap">Ldap</a>
+                            </td>
+                            <td>
+                                Provides an LDAP client for PHP on top of PHP's ldap extension.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/ldap">Code</a>
+                            </td>
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Locale">Locale</a>
+                            </td>
+                            <td>
+                                Provides fallback code to handle cases when the intl extension is missing. This component is deprecated since 2.3, use the Intl component instead.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/locale">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/2.2/components/locale.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/OptionsResolver">OptionsResolver</a>
+                            </td>
+                            <td>
+                                Helps you configuring objects with option arrays.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/options-resolver">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/options_resolver.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Process">Process</a>
+                            </td>
+                            <td>
+                                Executes commands in sub-processes
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/process">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/process.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/PropertyAccess">PropertyAccess</a>
+                            </td>
+                            <td>
+                                Provides function to read and write from/to an object or array using a simple string notation.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/property-access">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/property_access/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/PropertyInfo">PropertyInfo</a>
+                            </td>
+                            <td>
+                                Extracts information about the properties of PHP classes using metadata of popular sources (Doctrine, PHP Reflection, PHPdoc, etc.)
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/property-info">Code</a>
+                            </td>
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Routing">Routing</a>
+                            </td>
+                            <td>
+                                Maps an HTTP request to a set of configuration variables.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/routing">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/routing/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Security">Security</a>
+                            </td>
+                            <td>
+                                Provides an infrastructure for sophisticated authorization systems.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/security">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/security/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Serializer">Serializer</a>
+                            </td>
+                            <td>
+                                Turns objects into a specific format (XML, JSON, Yaml, ...) and the other way around.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/serializer">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/serializer.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Stopwatch">Stopwatch</a>
+                            </td>
+                            <td>
+                                Provides a way to profile code.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/stopwatch">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/stopwatch.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Templating">Templating</a>
+                            </td>
+                            <td>
+                                Provides all the tools needed to build any kind of template system.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/templating">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/templating/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Translation">Translation</a>
+                            </td>
+                            <td>
+                                Provides tools to internationalize your application.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/translation">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/translation/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Validator">Validator</a>
+                            </td>
+                            <td>
+                                Provides tools to validate classes.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/validator">Code</a>
+                            </td>
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/VarDumper">VarDumper</a>
+                            </td>
+                            <td>
+                                Provides mechanisms for walking through any arbitrary PHP variable.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/var-dumper">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/var_dumper/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <a href="https://symfony.com/components/Yaml">Yaml</a>
+                            </td>
+                            <td>
+                                Loads and dumps YAML files.
+                            </td>
+                            <td>
+                                <a href="https://github.com/symfony/yaml">Code</a>
+                            </td>
+                            <td>
+                                <a href="https://symfony.com/doc/current/components/yaml/index.html">Documentation</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

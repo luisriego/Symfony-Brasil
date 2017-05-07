@@ -1,0 +1,369 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-2-2" class="blog category case-studies" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+                    <h1 class="content_title">Estudo de casos</h1>
+                    <div class="post no-icons  case-studies">
+                        <div class="post-content">
+                            <h2>
+                                <a href="http://symfony.com/blog/one-api-to-rule-all-product-data">
+                                    One API to rule all product data
+                                </a>
+                            </h2>
+                            <p class="excerpt">
+                                In this case study, Liip explains how they used Symfony to build a very demanding and API-centric application for the biggest retail company in Switzerland.
+                            </p>
+                            <p class="metadata">
+                                <span class="date">
+                                    January 21, 2016
+                                </span>
+
+                                <span class="author">
+                                    <span class="gravatar">
+                                            <a href="https://connect.sensiolabs.com/api/alternates/17170f22-52c0-4adf-a75d-29cb01d53176">
+                                                <img src="{{ asset('bundles/app/img/9dc22dfc54bd9c666c72ebcd73d2fdd7.png') }}" alt="Javier Eguiluz">
+                                            </a>
+                                    </span>
+                                    <a href="https://connect.sensiolabs.com/api/alternates/17170f22-52c0-4adf-a75d-29cb01d53176">
+                                        Javier Eguiluz
+                                    </a>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="post no-icons  case-studies">
+                        <div class="post-content">
+                            <h2>
+                                <a href="http://symfony.com/blog/going-soa-with-symfony2-a-year-and-a-half-down-the-road">
+                                    Going SOA with Symfony2: A year and a half down the road
+                                </a>
+                            </h2>
+                            <p class="excerpt">
+                                A case study about a Symfony application that relies on microservices to implement a Service-Oriented Architecture.
+                            </p>
+                            <p class="metadata">
+                                <span class="date">
+                                    December 16, 2014
+                                </span>
+                                <span class="author">
+                                    <span class="gravatar">
+                                            <a href="https://connect.sensiolabs.com/api/alternates/17170f22-52c0-4adf-a75d-29cb01d53176">
+                                                <img src="{{ asset('bundles/app/img/9dc22dfc54bd9c666c72ebcd73d2fdd7.png') }}" alt="Javier Eguiluz">
+                                            </a>
+                                    </span>
+                                    <a href="https://connect.sensiolabs.com/api/alternates/17170f22-52c0-4adf-a75d-29cb01d53176">
+                                        Javier Eguiluz
+                                    </a>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="post no-icons  case-studies">
+                        <div class="post-content">
+                            <h2>
+                                <a href="http://symfony.com/blog/thelia-a-symfony-based-e-commerce-solution">
+                                    Thelia, a Symfony-based e-commerce solution
+                                </a>
+                            </h2>
+                            <p class="excerpt">
+                                An interview with Manuel Raynaud, lead developer of Thelia, a Symfony-based e-commerce solution. Introducing the new Thelia 2 and how it's in perfect harmony with Symfony.
+                            </p>
+                            <p class="metadata">
+                                <span class="date">
+                                    September 17, 2014
+                                </span>
+                                <span class="author">
+                                    <span class="gravatar">
+                                        <a href="https://connect.sensiolabs.com/api/alternates/17170f22-52c0-4adf-a75d-29cb01d53176">
+                                            <img src="{{ asset('bundles/app/img/9dc22dfc54bd9c666c72ebcd73d2fdd7.png') }}" alt="Javier Eguiluz">
+                                        </a>
+                                    </span>
+                                        <a href="https://connect.sensiolabs.com/api/alternates/17170f22-52c0-4adf-a75d-29cb01d53176">
+                                            Javier Eguiluz
+                                        </a>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="post no-icons  case-studies">
+                        <div class="post-content">
+                            <h2>
+                                <a href="http://symfony.com/blog/push-it-to-the-limits-symfony2-for-high-performance-needs">
+                                    Push it to the limits - Symfony2 for High Performance needs
+                                </a>
+                            </h2>
+
+                            <p class="excerpt">
+                                In this Case Study, we'll reveal some architecture details of the "1 Billion Symfony2
+                                Application". We'll show you the project big-picture then focus on features we
+                                really like in Symfony2.
+                            </p>
+
+                            <p class="metadata">
+                <span class="date">
+    August 4, 2014
+</span>
+
+<span class="author">
+    <span class="gravatar">
+            <a href="https://connect.sensiolabs.com/api/alternates/17170f22-52c0-4adf-a75d-29cb01d53176">
+                <img src="{{ asset('bundles/app/img/9dc22dfc54bd9c666c72ebcd73d2fdd7.png') }}" alt="Javier Eguiluz">
+            </a>
+    </span>
+
+
+            <a href="https://connect.sensiolabs.com/api/alternates/17170f22-52c0-4adf-a75d-29cb01d53176">
+                Javier Eguiluz
+            </a>
+    </span>
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="post no-icons  case-studies">
+                        <div class="post-content">
+                            <h2>
+                                <a href="http://symfony.com/blog/getting-pushy-with-symfony2">
+                                    Getting Pushy with Symfony2!
+                                </a>
+                            </h2>
+
+                            <p class="excerpt">
+                                Message Queues are not a new concept – neither is Push Notifications and surely not HTTP Posts for that matter. However, when you combine these ideas with Symfony you have a very flexible queueing system.
+                            </p>
+
+                            <p class="metadata">
+                <span class="date">
+    June 27, 2014
+</span>
+
+<span class="author">
+    <span class="gravatar">
+            <a href="https://connect.sensiolabs.com/api/alternates/17170f22-52c0-4adf-a75d-29cb01d53176">
+                <img src="{{ asset('bundles/app/img/9dc22dfc54bd9c666c72ebcd73d2fdd7.png') }}" alt="Javier Eguiluz">
+            </a>
+    </span>
+
+
+            <a href="https://connect.sensiolabs.com/api/alternates/17170f22-52c0-4adf-a75d-29cb01d53176">
+                Javier Eguiluz
+            </a>
+    </span>
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="post no-icons  case-studies">
+                        <div class="post-content">
+                            <h2>
+                                <a href="http://symfony.com/blog/orocrm-the-new-kid-on-the-symfony2-block">
+                                    OroCRM, the new kid on the Symfony2 block
+                                </a>
+                            </h2>
+
+                            <p class="excerpt">
+                                There are many hard and risky decisions that need to be made
+                                when starting a new open-source project. We wanted to share with you
+                                how for OroCRM one of the best decisions we have made so far is
+                                selecting the Symfony2 framework to create our vision.
+                            </p>
+
+                            <p class="metadata">
+                <span class="date">
+    March 3, 2014
+</span>
+
+<span class="author">
+    <span class="gravatar">
+            <a href="https://connect.sensiolabs.com/api/alternates/1c1fd87c-581a-41e6-8294-8a78b3add192">
+                <img src="{{ asset('bundles/app/img/1c1fd87c-581a-41e6-8294-8a78b3add192.png') }}" alt="Yoav Kutner">
+            </a>
+    </span>
+
+
+            <a href="https://connect.sensiolabs.com/api/alternates/1c1fd87c-581a-41e6-8294-8a78b3add192">
+                Yoav Kutner
+            </a>
+    </span>
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="post no-icons  case-studies">
+                        <div class="post-content">
+                            <h2>
+                                <a href="http://symfony.com/blog/symfony2-meets-ez-publish-5">
+                                    Symfony2 meets eZ Publish 5
+                                </a>
+                            </h2>
+
+                            <p class="excerpt">
+
+                                eZ Publish announced that they will use the Symfony full-stack framework for version 5.
+
+                            </p>
+
+                            <p class="metadata">
+                <span class="date">
+    July 2, 2012
+</span>
+
+<span class="author">
+    <span class="gravatar">
+            <a href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15">
+                <img src="{{ asset('bundles/app/img/f1a2c5905e121d09feba5ad73898ffca.jpeg') }}" alt="Fabien Potencier">
+            </a>
+    </span>
+
+
+            <a href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15">
+                Fabien Potencier
+            </a>
+    </span>
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="post no-icons  case-studies">
+                        <div class="post-content">
+                            <h2>
+                                <a href="http://symfony.com/blog/symfony2-meets-drupal-8">
+                                    Symfony2 meets Drupal 8
+                                </a>
+                            </h2>
+
+                            <p class="excerpt">
+
+                                The one where I officially talk about the adoption of some of the Symfony2
+                                Components in Drupal 8.
+
+                            </p>
+
+                            <p class="metadata">
+                <span class="date">
+    March 22, 2012
+</span>
+
+<span class="author">
+    <span class="gravatar">
+            <a href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15">
+                <img src="{{ asset('bundles/app/img/f1a2c5905e121d09feba5ad73898ffca.jpeg') }}" alt="Fabien Potencier">
+            </a>
+    </span>
+
+
+            <a href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15">
+                Fabien Potencier
+            </a>
+    </span>
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="post no-icons  case-studies">
+                        <div class="post-content">
+                            <h2>
+                                <a href="http://symfony.com/blog/a-beginner-s-journey-with-symfony">
+                                    A beginner's Journey with Symfony
+                                </a>
+                            </h2>
+
+                            <p class="excerpt">
+                                The case study this time is by Tom Dibaja, a new user of symfony. In his case study, he describes how easy it was for him, being an enterpreneur and not necessarily a developer, to pick up symfony for the development of one of his websites.
+                            </p>
+
+                            <p class="metadata">
+                <span class="date">
+    August 13, 2010
+</span>
+
+<span class="author">
+    <span class="gravatar">
+            <a href="https://connect.sensiolabs.com/api/alternates/106f311e-87b0-411c-b001-4f4805164b4a">
+                <img src="{{ asset('bundles/app/img/106f311e-87b0-411c-b001-4f4805164b4a.png') }}" alt="Stefan Koopmanschap">
+            </a>
+    </span>
+
+
+            <a href="https://connect.sensiolabs.com/api/alternates/106f311e-87b0-411c-b001-4f4805164b4a">
+                Stefan Koopmanschap
+            </a>
+    </span>
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="post no-icons  case-studies">
+                        <div class="post-content">
+                            <h2>
+                                <a href="http://symfony.com/blog/symfony-in-the-health-industry">
+                                    Symfony in the health industry
+                                </a>
+                            </h2>
+
+                            <p class="excerpt">
+                                Symfony is used in a widespread range of industries, and this case study by Tomasz Muras of Enovation Solutions shows that the health industry has also embraced the framework for application development.
+                            </p>
+
+                            <p class="metadata">
+                <span class="date">
+    July 22, 2010
+</span>
+
+<span class="author">
+    <span class="gravatar">
+            <a href="https://connect.sensiolabs.com/api/alternates/106f311e-87b0-411c-b001-4f4805164b4a">
+                <img src="{{ asset('bundles/app/img/106f311e-87b0-411c-b001-4f4805164b4a.png') }}" alt="Stefan Koopmanschap">
+            </a>
+    </span>
+
+
+            <a href="https://connect.sensiolabs.com/api/alternates/106f311e-87b0-411c-b001-4f4805164b4a">
+                Stefan Koopmanschap
+            </a>
+    </span>
+
+
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <ul class="row pager invisible">
+                        <li class="col-xs-6 previous disabled">
+                            « Previous Page
+                        </li>
+
+                        <li class="col-xs-6 next">
+                            <a accesskey="N" href="http://symfony.com/blog/category/case-studies?page=2">
+                                Next Page »
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

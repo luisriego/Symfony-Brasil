@@ -1,0 +1,101 @@
+<div class="post-content">
+    <div style="border-radius: 4px; float: right; margin-left: 15px; margin-bottom: 15px; width: 200px; background-color: #fff7c4; padding: 7px">
+        <div style="float: left; padding-top: 3px; width: 200px;">
+            <a href="https://connect.sensiolabs.com/profile/chalas_r">
+                <img style="border-radius: 40px;" height="40" width="40" src="https://secure.gravatar.com/avatar/6b6104be70a17b7121a278143053e433" alt="Robin Chalas">
+            </a>
+            <a href="https://connect.sensiolabs.com/profile/nicolas-grekas">
+                <img style="border-radius: 40px;" height="40" width="40" src="https://secure.gravatar.com/avatar/6baa34bc1e5c347b1003f6abe8691de1?s=100" alt="Nicolas Grekas">
+            </a>
+        </div>
+        <div style="float: left;">
+            <p style="font-size: 80%; margin-bottom: 0; padding-bottom: 0">
+                Contributed by <br>
+                <a href="https://connect.sensiolabs.com/profile/chalas_r">Robin Chalas</a>
+                <a href="https://connect.sensiolabs.com/profile/nicolas-grekas">Nicolas Grekas</a> <br>
+                in <a href="https://github.com/symfony/symfony/pull/21553">#21553</a>
+                and <a href="https://github.com/symfony/symfony/pull/22024">#22024</a>.
+            </p>
+        </div>
+        <div class="clear_fix"></div>
+    </div>
+    <p>
+        Nos projetos Symfony, alguns serviços precisam ter acesso a vários outros serviços, embora alguns deles não
+        sejam realmente usados (por exemplo, a classe <code class="notranslate">FirewallMap</code>). Instanciar todos
+        esses serviços não utilizados é inútil, mas não é possível transformá-los em
+        <a href="http://symfony.com/doc/current/service_container/lazy_services.html">lazy services</a> usando uma injeção
+        de dependências explícita.
+    </p>
+    <p>
+        A solução tradicional nesses casos era injetar todo o "Service Container (Contenedor de Serviços)" para obter
+        apenas os serviços realmente necessários. No entanto, isso não é recomendado porque fornece serviços com acesso
+        muito amplo para o resto do projeto e oculta as dependências reais dos serviços.
+    </p>
+    <p>
+        <a class="reference external" href="https://en.wikipedia.org/wiki/Service_locator_pattern">Service locators</a>
+        ou <a href="https://www.dicio.com.br/alocador/">Alocadores de Serviços</a> são um padrão de design que <em>&quot;encapsula
+        os processos envolvidos na obtenção de um serviço 'service [...]' usando um registro central conhecido como
+            'service locator'&quot;</em>. Este padrão é muitas vezes desaconselhado, mas é útil nesses casos e é muito
+        melhor do que injetar todo o contenedor de serviços(service container).
+    </p>
+    <p>
+        Considere a classe <code class="notranslate">CommandBus</code> que mapeia comandos e seus manipuladores
+        (<code class="notranslate">handlers</code>). Esta classe trata apenas um comando de cada vez, por isso é inútil
+        instanciar todos eles. Primeiro, defina um <code class="notranslate">service locator</code> alocador de serviços
+        com a nova tag <code class="notranslate">container.service_locator</code> e adicione todos os comandos
+        como argumentos:
+    </p>
+    {# NAO TROCAR O INDEXAMENTO #}
+    <div class="literal-block notranslate"><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/services.yml</span>
+<span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">app.command_handler_locator</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Symfony\Component\DependencyInjection\ServiceLocator</span>
+        <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&#39;container.service_locator&#39;</span><span class="p-Indicator">]</span>
+        <span class="l-Scalar-Plain">arguments</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span>
+                <span class="l-Scalar-Plain">AppBundle\FooCommand</span><span class="p-Indicator">:</span> <span class="s">&#39;@app.command_handler.foo&#39;</span>
+                <span class="l-Scalar-Plain">AppBundle\BarCommand</span><span class="p-Indicator">:</span> <span class="s">&#39;@app.command_handler.bar&#39;</span>
+</pre></div>
+        </div></div>
+    <p>Em seguida, injete o alocador de serviços no serviço definido para o barramento de comando:</p>
+    <div class="literal-block notranslate"><div class="highlight-yaml"><div class="highlight"><pre><span class="c1"># app/config/services.yml</span>
+<span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">AppBundle\CommandBus</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">arguments</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&#39;@app.command_handler_locator&#39;</span><span class="p-Indicator">]</span>
+</pre></div>
+        </div></div>
+    <p>
+        O alocador de serviço injetado é uma instância do <code class="notranslate">Symfony\Component\DependencyInjection\ServiceLocator</code>.
+        Esta classe implementa o <code class="notranslate">ContainerInterface</code> PSR-11, que inclui os métodos
+        <code class="notranslate">has()</code> e <code class="notranslate">get()</code> para verificar e obter serviços
+        a partir do localizador:
+    </p>
+    <div class="literal-block notranslate"><div class="highlight-php"><div class="highlight"><pre><span class="c1">// ...</span>
+<span class="k">use</span> <span class="nx">Psr\Container\ContainerInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CommandBus</span>
+<span class="p">{</span>
+    <span class="sd">/** @var ContainerInterface */</span>
+    <span class="k">private</span> <span class="nv">$handlerLocator</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">handle</span><span class="p">(</span><span class="nx">Command</span> <span class="nv">$command</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$commandClass</span> <span class="o">=</span> <span class="nb">get_class</span><span class="p">(</span><span class="nv">$command</span><span class="p">);</span>
+
+        <span class="c1">// check if some service is included in the service locator</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">handlerLocator</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="nv">$commandClass</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// get the service from the service locator (and instantiate it)</span>
+        <span class="nv">$handler</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">handlerLocator</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$commandClass</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$handler</span><span class="o">-&gt;</span><span class="na">handle</span><span class="p">(</span><span class="nv">$command</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+        </div></div>
+
+</div>

@@ -1,0 +1,133 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-9-2" class="about" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+                    <h1 class="content_title">Logos e screenshots de Symfony</h1>
+                    <h2>Logo de Symfony</h2>
+                    <p>
+                        Antes de usar o logo de Symfony leia a nossa <a href="http://symfony.com/trademark">Política de maca e logo</a>.
+                    </p>
+
+                    <table class="images logos">
+                        <tbody><tr>
+                            <td><strong>Logo preferencial</strong></td>
+                            <td>Alternativa horizontal</td>
+                            <td>Alternativa vertical</td>
+                        </tr>
+                        <tr>
+                            <th><img style="width: 200px" src="{{ asset('bundles/app/img/symfony_black_02.png') }}"></th>
+                            <th><img style="width: 200px" src="{{ asset('bundles/app/img/symfony_black_01.png') }}"></th>
+                            <th><img style="width: 100px" src="{{ asset('bundles/app/img/symfony_black_03.png') }}"></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="{{ asset('bundles/app/img/symfony_black_02.png') }}">PNG</a>
+                                <a href="http://symfony.com/logos/symfony_black_02.svg?v=4">SVG</a>
+                                <a href="http://symfony.com/logos/symfony_black_02.eps?v=4">EPS</a>
+                            </td>
+                            <td>
+                                <a href="{{ asset('bundles/app/img/symfony_black_01.png') }}">PNG</a>
+                                <a href="http://symfony.com/logos/symfony_black_01.svg?v=4">SVG</a>
+                                <a href="http://symfony.com/logos/symfony_black_01.eps?v=4">EPS</a>
+                            </td>
+                            <td>
+                                <a href="{{ asset('bundles/app/img/symfony_black_03.png') }}">PNG</a>
+                                <a href="http://symfony.com/logos/symfony_black_03.svg?v=4">SVG</a>
+                                <a href="http://symfony.com/logos/symfony_black_03.eps?v=4">EPS</a>
+                            </td>
+                        </tr>
+                        </tbody></table>
+
+                    <p>
+                        Logos negativos usados em fundos escuros:
+                    </p>
+
+                    <table class="images logos negative">
+                        <tbody><tr>
+                            <th><img style="width: 200px" src="{{ asset('bundles/app/img/symfony_white_02.png') }}"></th>
+                            <th><img style="width: 200px" src="{{ asset('bundles/app/img/symfony_white_01.png') }}"></th>
+                            <th><img style="width: 100px" src="{{ asset('bundles/app/img/symfony_white_03.png') }}"></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="{{ asset('bundles/app/img/symfony_white_02.png') }}">PNG</a>
+                                <a href="http://symfony.com/logos/symfony_white_02.svg?v=4">SVG</a>
+                                <a href="http://symfony.com/logos/symfony_white_02.eps?v=4">EPS</a>
+                            </td>
+                            <td>
+                                <a href="{{ asset('bundles/app/img/symfony_white_01.png') }}">PNG</a>
+                                <a href="http://symfony.com/logos/symfony_white_01.svg?v=4">SVG</a>
+                                <a href="http://symfony.com/logos/symfony_white_01.eps?v=4">EPS</a>
+                            </td>
+                            <td>
+                                <a href="{{ asset('bundles/app/img/symfony_white_03.png') }}">PNG</a>
+                                <a href="http://symfony.com/logos/symfony_white_03.svg?v=4">SVG</a>
+                                <a href="http://symfony.com/logos/symfony_white_03.eps?v=4">EPS</a>
+                            </td>
+                        </tr>
+                        </tbody></table>
+
+                    <p>
+                        Logo herdado do Symfony 1, proporcionado somente por motivos históricos.
+                        <strong>Não use este logo em nenhum matrial relacionado com Symfony.</strong>
+                    </p>
+
+                    <table class="images logos">
+                        <tbody><tr>
+                            <th><img style="width: 200px" src="{{ asset('bundles/app/img/symfony1.gif') }}" alt="Logo de Symfony 1"></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="{{ asset('bundles/app/img/symfony1.gif') }}">GIF</a>
+                                <a href="http://symfony.com/logos/symfony1.ai?v=4">AI</a>
+                                <a href="http://symfony.com/logos/symfony1.eps?v=4">EPS</a>
+                            </td>
+                        </tr>
+                        </tbody></table>
+
+                    <h2>Symfony screenshots</h2>
+
+                    <table class="images">
+                        <tbody><tr>
+                            <td>Página de boas vindas de Symfony</td>
+                            <td>Perfil de Symfony</td>
+                            <td>Projeto demo de Symfony</td>
+                        </tr>
+                        <tr>
+                            <th><img style="width: 180px" src="{{ asset('bundles/app/img/symfony-welcome.png') }}"></th>
+                            <th><img style="width: 180px" src="{{ asset('bundles/app/img/symfony-profiler.png') }}"></th>
+                            <th><img style="width: 180px" src="{{ asset('bundles/app/img/symfony-demo.png') }}"></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="{{ asset('bundles/app/img/symfony-welcome.png') }}">PNG</a>
+                            </td>
+                            <td>
+                                <a href="{{ asset('bundles/app/img/symfony-profiler.png') }}">PNG</a>
+                            </td>
+                            <td>
+                                <a href="{{ asset('bundles/app/img/symfony-demo.png') }}">PNG</a>
+                            </td>
+                        </tr>
+                        </tbody></table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-2-2" class="blog category case-studies" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+<!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_blog-sidebar.html.twig') }}
+
+
+                <div id="main" class="col-sm-9">
+                    {#breadcrumb#}
+                    {#<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">#}
+                        {#<li class="" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">#}
+                            {#<a itemprop="item" href="/"><span itemprop="name">Home</span></a>#}
+                            {#<meta itemprop="position" content="1" />#}
+                        {#</li>#}
+                        {#<li class="" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">#}
+                            {#<a itemprop="item" href="/doc/current/index.html"><span itemprop="name">Documentation</span></a>#}
+                            {#<meta itemprop="position" content="2" />#}
+                        {#</li>#}
+                        {#<li class="" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">#}
+                            {#<a itemprop="item" href="/doc/bundles/"><span itemprop="name">Bundles</span></a>#}
+                            {#<meta itemprop="position" content="3" />#}
+                        {#</li>#}
+                        {#<li class="" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">#}
+                            {#<a itemprop="item" href="/doc/current/bundles/DoctrineMigrationsBundle/index.html"><span itemprop="name">DoctrineMigrationsBundle</span></a>#}
+                            {#<meta itemprop="position" content="4" />#}
+                        {#</li>#}
+                    {#</ol>#}
+
+                    <h1 class="content_title">{{ post.title }}</h1>
+
+                    <div class="post">
+                        <p class="metadata">
+                            <span class="date">{{ post.createdAt|date('d \\d\\e M \\d\\e Y') }}</span>
+
+                            <span class="author">
+                                <span class="gravatar">
+                                    <a href="{{ post.user.link }}">
+                                        <img src="{{ asset(upload_directory ~ post.user.avatar) }}?format=57x57" alt="{{ post.user.nomeCompleto|title }}">
+                                    </a>
+                                </span>
+
+                                <a
+                                    rel="nofollow" target="_blank"
+                                    href="{{ post.user.link }}">
+                                    {{ post.user.nomeCompleto|title }}
+                                </a>
+                            </span>
+                        </p>
+                        {{ include(':blog/articles-includes:_id-'~ post.id ~'.html.twig') }}
+                        {#{% autoescape %}#}
+                            {#{{ post.body|raw }} #}{# post.body won't be escaped #}
+                        {#{% endautoescape %}#}
+                    </div>
+
+                    <div id="license">
+                        <p>
+                            This work, including the code samples, is licensed under a
+                            <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons BY-SA 3.0</a>
+                            license.
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

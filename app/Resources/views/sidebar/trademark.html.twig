@@ -1,0 +1,68 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+{% block bodytag %}<body id="p-6-2-4" class="" style="padding-top: 0px;">{% endblock %}
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+
+                    <h1 class="content_title">
+                        Marcas registradas &amp; Licenças de Symfony                                                                         </h1>
+
+                    <h2>Symfony Marca Registrada</h2>
+                    <p>
+                        Symfony ™ é uma marca registrada de Fabien Potencier. Todos os direitos reservados.
+                        <a href="http://symfony.com/trademark">Ver detalhes da licença</a>.
+                    </p>
+
+
+                    <h2>Logo de Symfony</h2>
+                    <p>
+                        O logo de Symfony é uma arte original criada por
+                        <a href="http://sensiolabs.com/">SensioLabs</a> é publicada sob os termos da licença de copyright.
+                        <a href="http://symfony.com/trademark">Veja como usar o logo</a>.
+                    </p>
+
+
+
+                    <h2>Website de Symfony</h2>
+                    <p>
+                        O design do Website da Symfony é uma arte original criada por
+                        <a href="http://sensiolabs.com/">SensioLabs</a> e publicado sob os
+                        termos da licença de copyright. Salvo indicação em contrário, os
+                        conteúdos do site são publicados sob os termos da Creative Commons
+                        Attribution-ShareAlike 3.0
+                        <a href="http://creativecommons.org/licenses/by-sa/3.0/">Ver detalhes da licença</a>.
+                    </p>
+
+
+                    <h2>O código Symfony</h2>
+                    <p>
+                        O código fonte do Symfony é publicado sob os termos da licença MIT.
+                        <a href="http://symfony.com/doc/master/contributing/code/license.html">Ver detalhes da licença do código</a>.
+                    </p>
+
+
+                    <h2>Documentação do Symfony</h2>
+                    <p>
+                        A documentação do Symfony é publicada sob os termos da licença Creative Commons
+                        Attribution-Share Alike 3.0 Unported.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

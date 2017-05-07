@@ -1,0 +1,239 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/all.css') }}">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    {#<link rel="stylesheet" href="{{ asset('bundles/app/css/mycss.css') }}">#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/all.js') }}"></script>
+    <link rel="apple-touch-icon" type="image/png" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="apple-touch-icon-precomposed" type="image/png" href="{{ asset('apple-touch-icon.png') }}">
+{% endblock %}
+{% block sensio %}
+    <!--########## CABEZEIRA DE SENSIOLAB ############## -->
+    <div id="sln" style="">
+        <div class="sln-bar">
+            <div class="sln-bar-inner">
+                <div class="sln-network">
+                    <a
+                        href="https://sensiolabs.com/"
+                        rel="nofollow"
+                        target="_blank"
+                        class="sln-hidden-phone">SensioLabs<span>Network</span>
+                    </a>
+                    <a href="https://sensiolabs.com/" class="sln-visible-phone" rel="nofollow" target="_blank">SL<span>N</span></a>
+                </div>
+                <div class="sln-ad">
+                    <a href="https://insight.sensiolabs.com/" target="_blank" rel="nofollow" data-ga="sl_insight" class="sln-visible-phone">
+                        <img src="{{ asset('bundles/app/img/1991a94e-4351-4af1-88ab-4f17f6d20f45.png') }} " alt="Sensiolab">SensioLabsInsight
+                    </a>
+                    <a href="https://insight.sensiolabs.com/" target="_blank" rel="nofollow" data-ga="sl_insight" class="sln-visible-tablet">
+                        <img src="{{ asset('bundles/app/img/1991a94e-4351-4af1-88ab-4f17f6d20f45.png') }}" alt="Sensiolab">SensioLabsInsight: regain control of your PHP applications
+                    </a>
+                    <a href="https://insight.sensiolabs.com/" target="_blank" rel="nofollow" data-ga="sl_insight" class="sln-visible-desktop">
+                        <img src="{{ asset('bundles/app/img/1991a94e-4351-4af1-88ab-4f17f6d20f45.png') }}" alt="Sensiolab">SensioLabsInsight: more than 100 quality checks to regain control of your PHP applications
+                    </a>
+                </div><!-- sln-ad }-->
+                <div class="sln-search">
+                    <div class="sln-search-deactivated">
+                        <a href="#"><img src="{{ asset('bundles/app/img/search.png') }}"></a>
+                    </div>
+                    <div class="sln-search-activated sln-hidden">
+                        <img src="{{ asset('bundles/app/img/search-alt.png') }}">
+                    </div>
+                </div>
+                <div class="sln-user">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') and usuario is defined  %}
+                        <a class="sln-user-connected" href="{{ path('fos_user_security_logout') }}">
+                            <img src="{{ asset('bundles/app/img/'~usuario.avatar) }}" width="30" height="30" alt="avatar">
+                            <span class="sln-user-name sln-hidden-phone">{{ usuario.username }}</span>
+                        </a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}" class="sln-connect"> Connect </a>
+                    {% endif %}
+                </div>
+
+            </div><!-- class="sln-bar-inner" -->
+        </div><!-- sln-bar -->
+    </div><!-- #sln -->
+    <!--########## FIM CABEZEIRA DE SENSIOLAB ##############-->
+{% endblock %}
+{% block menus %}
+    <header>
+        <div id="header-top" class="hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div id="header-logo" class="col-sm-5 col-md-6">
+                        <a href="{{ path('homepage') }}">
+                            <img src="{{ asset('bundles/app/img/header-logo.svg') }}" alt="Symfony" class="img-responsive">
+                        </a>
+                    </div>
+                    <div id="header-download" class="col-sm-7 col-md-6">
+                        <a
+                            href="http://sensiolabs.com/"
+                            class="header-sensiolabs-product"
+                            title="SensioLabs, PHP services and software solutions for enterprise and community."
+                            target="_blank" rel="nofollow">
+                            <img src="{{ asset('bundles/app/img/slproduct.svg') }}" alt="a SensioLabs product">
+                        </a>
+                        <a href="{{ path('download') }}" class="btn btn-primary btn-download">
+                            Download
+                        </a>
+                    </div>
+
+                </div>
+                <h2 style="margin-left: 30px" id="aviso">Este não é o
+                    <a href="https://symfony.com" rel="nofollow" target="_blank">site oficial de Symfony</a>,
+                    só um grupo de entusiastas no Brasil
+                </h2>
+            </div>
+        </div>
+
+        <div id="header-bottom" data-spy="affix" data-offset-top="123" class="affix-top">
+            <div class="container">
+                <div class="visible-xs">
+                    <div id="header-logo-responsive">
+                        <a href="{{ path('homepage') }}">
+                            <img src="{{ asset('bundles/app/img/sf-white.svg') }}" alt="Symfony" class="img-responsive">
+                        </a>
+                    </div>
+                    <a href="" id="menuToggle" class="icon-responsive-menu"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+                </div>
+
+                <a class="hidden-xs" href="{{ path('homepage') }}">
+                    <img id="header-logo-sticky" src="{{ asset('bundles/app/img/sf-positive.svg') }}" alt="Logomarca de Symfony">
+                </a>
+                {% if prefijo is not defined %}
+                    {% set prefijo = '' %}
+                {% endif %}
+                <ul id="header-main-menu" class="row">
+                    <li{% if prefijo == 'what' %} class="selected" {% endif %}>
+                        <a href="{{ path('que-e-symfony') }}"> O que é Symfony?</a>
+                    </li>
+                    <li{% if prefijo == 'doc' %} class="selected" {% endif %}>
+                        <a href="{{ path('panorama') }}">Documentação</a>
+                    </li>
+                    {#<li{% if app.request.get('_route') == 'doc'#}
+                            {#or app.request.get('_route') == 'a-vista'#}
+                            {#or app.request.get('_route') == 'panorama'#}
+                            {#or app.request.get('_route') == 'seguranca' %} class="selected"#}
+                        {#{% endif %}>#}
+                            {#<a#}
+                                {#href="{{ path('documentacao') }}"#}
+                                {#rel="nofollow"#}
+                                {#target="_blank"#}
+                                {#>Documentação</a>#}
+                    {#</li>#}
+                    <li><a href="http://symfony.com/community" rel="nofollow" target="_blank">Comunidade</a></li>
+                    <!--    						<li><a href="http://symfony.com/showcase">Showcase</a></li>-->
+                    <li><a href="http://symfony.com/marketplace" rel="nofollow" target="_blank">Mercado e trabalho</a></li>
+                    <!--    						<li><a href="http://symfony.com/jobs">Trabalho</a></li>-->
+                    <!--    						<li><a href="http://symfony.com/services">Business Solutions</a></li>-->
+                    <li><a href="{{ path('contato') }}">Contato</a></li>
+                    <li><a href="{{ path('blog-index') }}">Blog e Noticias</a></li>
+                </ul>
+
+                <div id="header-download-sticky" class="hidden-xs">
+                    <a href="{{ path('download') }}">
+                        Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+{% block footer %}
+    <footer>
+        <div class="promos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5 col-md-4">
+                        <h2 class="title_05">Notícias do blog SymfonyBrasil</h2>
+                        <ul class="event_list">
+                            {% for post in posts %}
+                            <li>
+                                <h3>
+                                    <a
+                                        href="{{ path('post-model', {'slug': post.slug}) }}">
+                                        {{ post.title }}
+                                        <span class="place_date">{{ post.createdAt|date('d \\d\\e M \\d\\e Y') }}</span>
+                                    </a>
+                                </h3>
+                            </li>
+                            {% endfor %}
+                        </ul>
+
+                        <div class="read-more link_01">
+                            <a href="{{ path('blog-index') }}">Visite o Blog de SymfonyBrasil</a>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <h2 class="title_05">Muito importante</h2>
+                        <div class="upcoming_event clear_fix">
+                            <div>
+                                <a href="http://sensiolabs.com/en/symfony/certification.html" target="_blank" rel="nofollow">
+                                    <img style="width: 100px" src="{{ asset('bundles/app/img/certification-big.png') }}" class="png_fix" alt="The Symfony Certification by SensioLabs">
+                                </a>
+                            </div>
+
+                            <div style="margin-top: 13px">
+                                <h3 class="certificado">Certificação Symfony 3 disponivel agora no Brasil!</h3>
+                                <div style="margin-top: 5px">
+                                    <a
+                                            rel="nofollow"
+                                            target="_blank"
+                                            href="http://sensiolabs.com/en/symfony/certification/order"
+                                            {#href="{{ path('get-certification') }}"#}
+                                            onclick="location.href = '{{ path('get-certification') }}'"
+                                            class="non_extensible_button button_01">
+                                        <span class="border_l png_fix">
+                                            <span class="border_r png_fix">
+                                                <span class="btn_bg png_fix">
+                                                    OBTENHA SEU CERTIFICADO
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div style="margin-top: 5px">
+                                    <a href="https://www2.pearsonvue.com/testtaker/registration/SelectTestCenterProximity/SENSIOLABS/1021737">Encontre onde realizar as provas</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 col-md-4">
+                        <h2 class="title_05">Siga Symfony e SensioLabs (inglês)</h2>
+                        <div class="social-links">
+                            <a href="https://twitter.com/sensiolabs" rel="nofollow" target="_blank">
+                                <img src="{{ asset('bundles/app/img/twitter-black.gif') }}" alt="link para twitter">
+                            </a>
+                            <a href="https://www.facebook.com/SensioLabs" rel="nofollow" target="_blank">
+                                <img src="{{ asset('bundles/app/img/facebook-black.gif') }}" alt="link para facebook">
+                            </a>
+                            <a href="https://www.youtube.com/user/SensioLabs" rel="nofollow" target="_blank">
+                                <img src="{{ asset('bundles/app/img/youtube-black.gif') }}" alt="link para youtube">
+                            </a>
+                            <a href="https://www.linkedin.com/company/sensiolabs" rel="nofollow" target="_blank">
+                                <img src="{{ asset('bundles/app/img/linkedin-black.gif') }}" alt="link para linkedin">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sitemap">
+            <div class="container">
+                <h5>
+                    <img src="{{ asset('bundles/app/img/sf-white.svg') }}" alt="Symfony">
+                    is a trademark of Fabien Potencier. All rights reserved.
+                </h5>
+            </div>
+        </div>
+
+    </footer>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

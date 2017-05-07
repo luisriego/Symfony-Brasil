@@ -1,0 +1,281 @@
+{% extends '::layout.html.twig' %}
+
+{% block body %}
+    <script>
+        $(function(){
+
+            $.ajax({
+                type: "POST",
+                url: "https://symfony.com/roadmap.json?version=all.json",
+                dataType: 'json',
+                success: function(msg){
+                    alert(msg);
+                }
+            })
+        });
+    </script>
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div class="symfony-intro">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-5 symfony-components">
+                    <h2>
+                        Symfony é un kit reutilizável
+                        <strong>de componentes PHP</strong>...
+                    </h2>
+                    <p>
+                        Estes são os padrões nos que se contruim as melhores
+                        aplicações PHP. Escolha entre os 30 componentes
+                        independentes disponíveis para suas aplicações
+                    </p>
+                    <a class="read-more" href="{{ path('componentes') }}">
+                        Ver componentes
+                    </a>
+                </div>
+
+                <div class="hidden-xs hidden-sm col-md-2">
+                    <img src="{{ asset('bundles/app/img/home-main-illu.svg') }}" alt="logo svg de Symfony">
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-5 symfony-framework">
+                    <h2>
+                        ... e um <strong>framework PHP</strong>
+                        para projetos web
+                    </h2>
+                    <p>
+                        Acelerar a criação e manutenção das aplicações web PHP.
+                        Terminar com as tarefas repetitivas e
+                        aproveitar o poder de controlar o seu código.
+                    </p>
+                    <ul>
+                        <li>
+                            <a class="read-more" href="{{ path('que-e-symfony') }}">
+                                O qué é Symfony
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- row -->
+        </div><!-- symfony-intro -->
+    </div><!-- container -->
+    <!--######## Slider portada ##########-->
+
+
+    <!--######## Projetos que utilizam Symfony ##########-->
+    <div class="symfony-clients">
+        <div class="container">
+            <div class="symfony-clients-content">
+                <h3>Projetos que utilizam Symfony</h3>
+                <div class="row symfony-clients-logos">
+                    <div class="col-xs-6 col-sm-2 col-md-2 project">
+                        <a href="http://symfony.com/projects/drupal">
+                            <img src="{{ asset('bundles/app/img/logo-drupal.png') }}" alt="logo drupal">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-2 col-md-2 project">
+                        <a href="http://symfony.com/projects/phpbb">
+                            <img src="{{ asset('bundles/app/img/logo-phpbb.png') }}" alt="logo phpbb">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-2 col-md-2 project">
+                        <a href="http://symfony.com/projects/laravel">
+                            <img src="{{ asset('bundles/app/img/logo-laravel.png') }}" alt="logo laravel">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-2 col-md-2 project">
+                        <a href="http://symfony.com/projects/ezpublish">
+                            <img src="{{ asset('bundles/app/img/logo-ezpublish.png') }}" alt="logo ezpublish">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-2 col-md-2 project">
+                        <a href="http://symfony.com/projects/orocrm">
+                            <img src="{{ asset('bundles/app/img/logo-orocrm.png') }}" alt="logo orocrm">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-2 col-md-2 project">
+                        <a href="http://symfony.com/projects/piwik">
+                            <img src="{{ asset('bundles/app/img/logo-piwik.png') }}" alt="logo piwik">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--######## Projetos que utilizam Symfony ##########-->
+
+
+    <div class="container">
+
+        <div class="symfony-resources">
+            <div class="row">
+                <div class="col-sm-6 symfony-learn">
+                    <ul>
+                        <li>
+                            <a class="read-more" href="{{ path('artigo-model', {'slug': '_como-comecar-com-fosuserbundle.html.twig'}) }}">
+                                Artigo sobre como começar com FOSUserBundle
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 symfony-learn">
+                    <ul>
+                        <li>
+                            <a class="read-more" href="https://trello.com/c/aHnP3WUI{#{{ path('artigo-model', {'slug': '_como-comecar-com-fosuserbundle.html.twig'}) }}#}">
+                                Como passar no Certificado Symfony
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-7 col-md-8 symfony-learn">
+                    <h2>Aprenda Symfony</h2>
+                    <p>
+                        Milhares de páginas de documentação cuidadosamente escritas
+                        que abordam todas as caraterísticas que existem em Symfony,
+                        licencia open-source e livre!
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 symfony-book">
+                            <h3>O livro Symfony</h3>
+
+                            <div class="row">
+                                <div class="hidden-xs col-xs-4 col-sm-3 col-md-3">
+                                    <img src="{{ asset('bundles/app/img/home-illu-book.svg') }}" alt="logo do livro symfony">
+                                </div>
+                                <p class="col-sm-9 col-md-9">
+                                    A guia fácil para virar um expert de Symfony
+                                    e dominar completamente o framework.
+                                    <a
+                                        class="read-more"
+                                        rel="nofollow"
+                                        target="_blank"
+                                        href="http://andreiabohner.org/symfony2docs/3.0/index.html">
+                                        Começe ler agora
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 symfony-resources">
+                            <h4>Recursos adicionais</h4>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('panorama') }}">
+                                        Guia rápida
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        rel="nofollow"
+                                        target="_blank"
+                                        href="http://andreiabohner.org/symfony2docs/2.8/cookbook/index.html">
+                                        O livro de receitas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('componentes') }}">
+                                        Componentes
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-5 col-md-4">
+                    <div class="box-standard symfony-trainings">
+                        <h2 class="title_05">Próximos treinamentos</h2>
+                        <ul class="event_list">
+                            {% for treino in treinos %}
+                            <li itemscope itemtype="http://schema.org/Event">
+                                <a itemprop="url" href="{{ treino.link }}">
+                                    <span itemprop="name">{{ treino.nome }}</span>
+                                    <br />
+                                    <span class="metadata">{{ treino.quando }}</span>
+                                    <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                        <span itemprop="addressLocality" content="Paris"></span>
+                                        <span itemprop="addressCountry"  content="France"></span>
+                                    </span>
+                                    <span itemprop="startDate" content="2017-05-09T00:00:00+00:00"></span>
+                                    <span itemprop="endDate" content="2017-05-10T00:00:00+00:00"></span>
+                                    <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                        <span itemprop="url" content="http://training.sensiolabs.com/en/courses/SF3C3-extending-and-hacking-symfony3"></span>
+                                    </span>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="link_01">
+                            <a
+                                rel="nofollow"
+                                target="_blank"
+                                href="http://trainings.sensiolabs.com/en/" class="png_fix">Ver todas as sessões Sensiolabs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="symfony-conferences">
+            <h2>Próximas conferências Symfony</h2>
+            <div class="row symfony-highlighted-events">
+                {#{% for d in destacado %}#}
+                    {#{% if loop.first %}#}
+                    <div class="col-sm-7">
+                        <div id="symfony-highlighted-event-international">
+                            <div class="box-standard">
+                                <div class="row">
+                                    {% if destacado is not null %}
+                                    <a href="http://sanfrancisco2017.live.symfony.com/" rel="nofollow" target="_parent">
+                                        <div class="col-md-7 event-information">
+
+                                            <img src="{{ asset('bundles/app/uploads/'~destacado.imagem) }}" alt="logo da conferencia {{ destacado.nome }}">
+
+                                            <p>
+                                                {{ destacado.texto|capitalize }}
+                                            </p>
+                                        </div>
+
+                                        <div class="hidden-xs hidden-sm col-md-5 event-mascot">
+                                            <img src="{{ asset('bundles/app/uploads/'~destacado.logo) }}" alt="Mascota da conferência Symfony em Berlim">
+
+                                        </div>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {#{% endif %}#}
+                {#{% endfor %}#}
+                <div class="col-sm-5">
+                {% for evento in eventos if evento.nome != destacado.nome %}
+                    {#{% if not loop.first %}#}
+                        <div id="symfony-upcoming-events">
+                            <div class="row symfony-event">
+                                <div class="hidden-xs col-sm-3 col-md-3">
+                                    <a href="{{ evento.url }}">
+                                        <img src="{{ asset('bundles/app/uploads/'~evento.picto) }}" alt="pictograma da SymfonyLive de Colônia">
+                                    </a>
+                                </div>
+                                <div class="col-sm-9 col-md-9">
+                                    <h4>{{ evento.nome }}</h4>
+                                    <p>{{ evento.dataInicio|date('d \\d\\e M \\d\\e Y') }}</p>
+                                    {#<p>#}
+                                        {#<a#}
+                                            {#rel="nofollow"#}
+                                            {#target="_blank"#}
+                                            {#href="{{ evento.url }}">#}
+                                            {#Informação#}
+                                        {#</a>#}
+                                    {#</p>#}
+                                </div>
+                            </div>
+                        </div>
+                    {#{% endif %}#}
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div><!-- container -->
+{% endblock %}

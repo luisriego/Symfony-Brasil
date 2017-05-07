@@ -1,0 +1,48 @@
+{% extends '::layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/sln.css') }}">
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <!--######## Slider portada ##########-->
+    <div class="container">
+        <div id="page-content">
+            <div class="row">
+
+                {# Barra lateral com os menus do grupo Que é Symfony #}
+                {{ include(':sidebar-menu:_que-e.html.twig') }}
+
+                {# Conteudo da página #}
+                <div id="main" class="col-sm-9">
+
+                    <h1 class="content_title">Contato</h1>
+
+                    {{ form_start(form) }}
+                        {{ form_errors(form) }}
+                        <div>
+                            {{ form_label(form.nome) }}
+                            {{ form_errors(form.nome) }}
+                            {{ form_widget(form.nome) }}
+                        </div>
+                        <div>
+                            {{ form_label(form.email) }}
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email) }}
+                        </div>
+                        <div>
+                            {{ form_label(form.menssagem) }}
+                            {{ form_errors(form.menssagem) }}
+                            {{ form_widget(form.menssagem) }}
+                        </div>
+                        <div>
+                            {{ form_widget(form.enviar) }}
+                        </div>
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
