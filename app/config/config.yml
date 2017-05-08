@@ -106,3 +106,20 @@ fos_user:
         sender_name:    Luís Riego
 
 bazinga_geocoder: ~
+
+easy_admin:
+    site_name:
+        'Symfony Brasil'
+    entities:
+        Contador:
+            class: AppBundle\Entity\Contador
+        Contato:
+            class: AppBundle\Entity\Contato
+        Evento:
+            class: AppBundle\Entity\Evento
+        Post:
+            class: AppBundle\Entity\Post
+        Treinamento:
+            class: AppBundle\Entity\Treinamento
+        User:
+            class: AppBundle\Entity\User
