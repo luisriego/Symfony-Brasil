@@ -123,12 +123,12 @@ class Evento extends Timestampable
     protected $publicar;
 
     /**
-     * @var Author
+     * @var User
      *
-     * @ORM\ManyToOne(targetEntity="Author", inversedBy="posts")
-     * @ORM\JoinColumn(name="author_id", referencedColumnName="id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
      */
-    private $author;
+    private $user;
 
     public function __toString()
     {
@@ -506,26 +506,26 @@ class Evento extends Timestampable
     }
 
     /**
-     * Set author
+     * Set user
      *
-     * @param \AppBundle\Entity\Author $author
+     * @param User $user
      *
      * @return Evento
      */
-    public function setAuthor(\AppBundle\Entity\Author $author)
+    public function setUser(User $user)
     {
-        $this->author = $author;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get author
+     * Get user
      *
-     * @return \AppBundle\Entity\Author
+     * @return User
      */
-    public function getAuthor()
+    public function getUser()
     {
-        return $this->author;
+        return $this->user;
     }
 }
