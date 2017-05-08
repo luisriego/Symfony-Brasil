@@ -72,7 +72,7 @@ class Post extends Timestampable
     protected $summary;
 
     /**
-     * @var Author
+     * @var User
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
@@ -139,27 +139,27 @@ class Post extends Timestampable
     }
 
     /**
-     * Set author
+     * Set user
      *
-     * @param \AppBundle\Entity\Author $author
+     * @param User $user
      *
      * @return Post
      */
-    public function setAuthor(Author $author)
+    public function setUser(User $user)
     {
-        $this->author = $author;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get author
+     * Get user
      *
-     * @return \AppBundle\Entity\Author
+     * @return \AppBundle\Entity\User
      */
-    public function getAuthor()
+    public function getUser()
     {
-        return $this->author;
+        return $this->user;
     }
 
     /**
@@ -255,28 +255,28 @@ class Post extends Timestampable
     {
         return $this->slug;
     }
-
-    /**
-     * Set user
-     *
-     * @param \AppBundle\Entity\User $user
-     *
-     * @return Post
-     */
-    public function setUser(\AppBundle\Entity\User $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AppBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
+//
+//    /**
+//     * Set user
+//     *
+//     * @param \AppBundle\Entity\User $user
+//     *
+//     * @return Post
+//     */
+//    public function setUser(\AppBundle\Entity\User $user)
+//    {
+//        $this->user = $user;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get user
+//     *
+//     * @return \AppBundle\Entity\User
+//     */
+//    public function getUser()
+//    {
+//        return $this->user;
+//    }
 }
