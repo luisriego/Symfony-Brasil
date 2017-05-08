@@ -117,6 +117,31 @@ easy_admin:
             class: AppBundle\Entity\Contato
         Evento:
             class: AppBundle\Entity\Evento
+            list:
+                fields:
+#                    - { property: 'createdAt', label: 'Criado em', format: 'j/n/Y' }
+                    - { property: 'nome', label: 'Nome do Evento' }
+                    - { property: 'cidade', label: 'Cidade do Evento' }
+                    - { property: 'estado', label: 'Estado' }
+                    - { property: 'dataInicio', label: 'Date de Início', format: 'd/m/Y' }
+                    - { property: 'dataFim', label: 'Date do Final', format: 'd/m/Y' }
+            new:
+                fields:
+                    - { property: 'user', label: 'Usuário', type: 'easyadmin_autocomplete', type_options: { class: 'AppBundle\Entity\User' } }
+                    - { property: 'createdAt', label: 'Criado Em', format: 'j/n/Y' }
+                    - { property: 'nome', label: 'Nome do Evento' }
+                    - { property: 'texto' }
+                    - { property: 'cidade', label: 'Cidade do Evento' }
+                    - { property: 'estado', label: 'Estado' }
+                    - { property: 'dataInicio', label: 'Date de Início', type: 'date' }
+                    - { property: 'dataFim', label: 'Date do Final', type: 'date' }
+                    - { property: 'logo', label: 'Logo do Evento', type: 'file' }
+                    - { property: 'picto', label: 'Pictograma', type: 'file' }
+                    - { property: 'imagem', label: 'Imagem', type: 'file' }
+                    - { property: 'url', label: 'URL do Evento', type: 'url' }
+                    - { property: 'destacado', label: 'Destacado' }
+                    - { property: 'noBrasil', label: 'Evento no Brasil' }
+                    - { property: 'publicar', label: 'URL do Evento' }
         Post:
             class: AppBundle\Entity\Post
         Treinamento:
